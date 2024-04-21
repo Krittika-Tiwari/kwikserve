@@ -109,8 +109,7 @@ function HomePage() {
                     zIndex: 1,
                   }}
                 >
-                  <h2>First Slide Text</h2>
-                  <p>This is the description of the first slide.</p>
+                  
                 </div>
               </div>
             </div>
@@ -132,8 +131,7 @@ function HomePage() {
                     zIndex: 1,
                   }}
                 >
-                  <h2>Second Slide Text</h2>
-                  <p>This is the description of the second slide.</p>
+                  
                 </div>
               </div>
             </div>
@@ -155,8 +153,7 @@ function HomePage() {
                     zIndex: 1,
                   }}
                 >
-                  <h2>Third Slide Text</h2>
-                  <p>This is the description of the third slide.</p>
+                 
                 </div>
               </div>
             </div>
