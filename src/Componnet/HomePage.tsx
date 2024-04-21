@@ -15,7 +15,6 @@ const { Content } = Layout;
 const { Title, Text } = Typography;
 
 function HomePage() {
-
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedService, setSelectedService] = useState<any>(null);
 
@@ -34,36 +33,88 @@ function HomePage() {
   const services = [
     {
       name: "Women's Salon & Spa",
-      imageUrl: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1678864013225-bfc1de.jpeg",
-      facilities: ["Haircut", "Hair Coloring", "Hair Styling", "Manicure", "Pedicure", "Facial", "Massage", "Spa Treatments", "Waxing"],
+      imageUrl:
+        "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1678864013225-bfc1de.jpeg",
+      facilities: [
+        "Haircut",
+        "Hair Coloring",
+        "Hair Styling",
+        "Manicure",
+        "Pedicure",
+        "Facial",
+        "Massage",
+        "Spa Treatments",
+        "Waxing",
+      ],
     },
     {
       name: "Men's Salon & Massage",
-      imageUrl: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1710241114433-5cfa7c.jpeg",
-      facilities: ["Haircut", "Beard Trim", "Shave", "Massage", "Facial", "Waxing", "Hair Coloring", "Hair Styling"],
+      imageUrl:
+        "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1710241114433-5cfa7c.jpeg",
+      facilities: [
+        "Haircut",
+        "Beard Trim",
+        "Shave",
+        "Massage",
+        "Facial",
+        "Waxing",
+        "Hair Coloring",
+        "Hair Styling",
+      ],
     },
     {
       name: "HVAC Services",
-      imageUrl: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1679292077307-6143d7.jpeg",
-      facilities: ["AC Installation", "AC Repair", "Heating Services", "Ventilation Services", "Indoor Air Quality Solutions"],
+      imageUrl:
+        "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1679292077307-6143d7.jpeg",
+      facilities: [
+        "AC Installation",
+        "AC Repair",
+        "Heating Services",
+        "Ventilation Services",
+        "Indoor Air Quality Solutions",
+      ],
     },
     {
       name: "House Cleaning",
-      imageUrl: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1681711961404-75dfec.jpeg",
-      facilities: ["Deep Cleaning", "Regular Cleaning", "Kitchen Cleaning", "Bathroom Cleaning", "Window Cleaning", "Carpet Cleaning", "Upholstery Cleaning"],
+      imageUrl:
+        "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1681711961404-75dfec.jpeg",
+      facilities: [
+        "Deep Cleaning",
+        "Regular Cleaning",
+        "Kitchen Cleaning",
+        "Bathroom Cleaning",
+        "Window Cleaning",
+        "Carpet Cleaning",
+        "Upholstery Cleaning",
+      ],
     },
     {
       name: "Pest Control",
-      imageUrl: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1658402794135-faf080.png",
-      facilities: ["General Pest Control", "Termite Control", "Rodent Control", "Bed Bug Control", "Mosquito Control", "Cockroach Control"],
+      imageUrl:
+        "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1658402794135-faf080.png",
+      facilities: [
+        "General Pest Control",
+        "Termite Control",
+        "Rodent Control",
+        "Bed Bug Control",
+        "Mosquito Control",
+        "Cockroach Control",
+      ],
     },
     {
-      name: "Parental Yoga",
-      imageUrl: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1705340729734-0a23f7.jpeg",
-      facilities: ["Pre-natal Yoga", "Post-natal Yoga", "Parent-child Yoga", "Yoga for Moms", "Yoga for Dads", "Yoga for Kids"],
+      name: "PreNatal Yoga",
+      imageUrl:
+        "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1705340729734-0a23f7.jpeg",
+      facilities: [
+        "Pre-natal Yoga",
+        "Post-natal Yoga",
+        "Parent-child Yoga",
+        "Yoga for Moms",
+        "Yoga for Dads",
+        "Yoga for Kids",
+      ],
     },
   ];
-  
 
   const offers = [
     {
@@ -96,7 +147,7 @@ function HomePage() {
                 <Image
                   style={{ height: "80vh", width: "100vw" }}
                   preview={false}
-                  src="https://wallpapers.com/images/hd/massage-pictures-fjn3gv5jqs3cmyqs.jpg"
+                  src="https://www.manmachinesolutions.com/wp-content/uploads/2014/08/DSC8558.jpg"
                 />
                 <div
                   style={{
@@ -108,9 +159,7 @@ function HomePage() {
                     color: "#fff",
                     zIndex: 1,
                   }}
-                >
-                  
-                </div>
+                ></div>
               </div>
             </div>
             <div>
@@ -118,7 +167,7 @@ function HomePage() {
                 <Image
                   style={{ height: "80vh", width: "100vw" }}
                   preview={false}
-                  src="https://www.firstclasspt.com/wp-content/uploads/2022/05/personal-trainer-in-home.jpg"
+                  src={"BeautySpa.jpg"}
                 />
                 <div
                   style={{
@@ -130,9 +179,7 @@ function HomePage() {
                     color: "#fff",
                     zIndex: 1,
                   }}
-                >
-                  
-                </div>
+                ></div>
               </div>
             </div>
             <div>
@@ -140,7 +187,7 @@ function HomePage() {
                 <Image
                   style={{ height: "80vh", width: "100vw" }}
                   preview={false}
-                  src="https://pizzazzpainting.com/wp-content/uploads/2019/03/shutterstock_1256829721-1024x683.jpg"
+                  src={"HomePainting.jpg"}
                 />
                 <div
                   style={{
@@ -152,9 +199,27 @@ function HomePage() {
                     color: "#fff",
                     zIndex: 1,
                   }}
-                >
-                 
-                </div>
+                ></div>
+              </div>
+            </div>
+            <div>
+              <div style={{ position: "relative" }}>
+                <Image
+                  style={{ height: "80vh", width: "100vw" }}
+                  preview={false}
+                  src={"HouseCleaning.jpg"}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    textAlign: "center",
+                    color: "#fff",
+                    zIndex: 1,
+                  }}
+                ></div>
               </div>
             </div>
           </Carousel>
@@ -181,7 +246,11 @@ function HomePage() {
           </Text>
           <Flex>
             {services.map((service, index) => (
-              <Card onClick={() => openModal(service)} key={index} style={{ width: "20vw" }}>
+              <Card
+                onClick={() => openModal(service)}
+                key={index}
+                style={{ width: "20vw" }}
+              >
                 <Flex
                   justify="center"
                   style={{
@@ -189,7 +258,11 @@ function HomePage() {
                     height: "80%",
                   }}
                 >
-                  <Image preview={false} style={{ width: "8rem" }} src={service.imageUrl} />
+                  <Image
+                    preview={false}
+                    style={{ width: "8rem" }}
+                    src={service.imageUrl}
+                  />
                 </Flex>
                 <Text
                   style={{
@@ -337,15 +410,14 @@ function HomePage() {
               style={{
                 backgroundColor: "#FFB6C1", // Background color
                 color: "white", // Text color
-               fontFamily: "Edu SA Beginner",
+                fontFamily: "Edu SA Beginner",
                 borderRadius: "5px", // Border radius
-                width:"8rem",
+                width: "8rem",
                 cursor: "pointer", // Cursor on hover
                 fontSize: "1.5rem", // Font size
                 marginTop: "1rem",
-                height:"3rem",
+                height: "3rem",
                 borderColor: "#FFB6C1",
-                
               }}
             >
               Explore
@@ -353,18 +425,19 @@ function HomePage() {
           </div>
         </Flex>
         <Modal
-          title={`${selectedService ? selectedService.name + " Facilities" : ""}`}
+          title={`${
+            selectedService ? selectedService.name + " Facilities" : ""
+          }`}
           open={modalVisible}
           onCancel={closeModal}
           footer={null}
         >
           {/* Display facilities of the selected service */}
           {selectedService &&
-            selectedService.facilities.map((facility: string, index: number) => (
-              <p key={index}>{facility}</p>
-            ))}
+            selectedService.facilities.map(
+              (facility: string, index: number) => <p key={index}>{facility}</p>
+            )}
         </Modal>
-
       </Content>
     </Layout>
   );

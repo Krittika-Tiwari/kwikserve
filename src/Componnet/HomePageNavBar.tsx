@@ -16,7 +16,7 @@ function HomePageNavBar() {
           alt="logo"
           src={"HomeServicesLogo.jpg"}
         />{" "}
-        Kwiserve
+        Kwikserve
       </Flex>
       <Flex>
         <Flex
