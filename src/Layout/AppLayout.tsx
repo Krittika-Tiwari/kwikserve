@@ -1,7 +1,7 @@
 import { Layout, Spin, Image, Col, Row, Divider } from "antd";
 import React, { useState, useEffect } from "react";
 import HomePageNavBar from "../Componnet/HomePageNavBar";
-import { Link, Outlet } from "react-router-dom";
+import {  Outlet } from "react-router-dom";
 import { EnvironmentFilled, MailFilled, PhoneFilled } from "@ant-design/icons";
 
 const { Header, Footer, Content } = Layout;
