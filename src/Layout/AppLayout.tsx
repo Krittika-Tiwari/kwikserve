@@ -31,7 +31,7 @@ function AppLayout() {
   };
 
   return (
-    <Layout style={{ minHeight: "100vh" }}>
+    <Layout style={{ minHeight: "100vh", }}>
       {isLoading ? (
         <div
           style={{
@@ -121,6 +121,28 @@ function AppLayout() {
           </Footer>
         </Layout>
       )}
+      <style>
+        {`
+              ::-webkit-scrollbar {
+                width: 5px; /* Make the scrollbar wider */
+                height: 5px;
+              }
+
+              ::-webkit-scrollbar-track {
+                background: #f1f1f1;
+              }
+
+              ::-webkit-scrollbar-thumb {
+                background: #bada55;
+
+                border-radius: 5px;
+              }
+
+              ::-webkit-scrollbar-thumb:hover {
+                background: #003300;
+              }
+            `}
+      </style>
     </Layout>
   );
 }
