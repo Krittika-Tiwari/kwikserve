@@ -28,6 +28,7 @@ const AllServices = () => {
       facilities: [
         {
           name: "Haircut and styling",
+
           services: [
             {
               name: "Haircut and styling",
@@ -207,6 +208,16 @@ const AllServices = () => {
       facilities: [
         {
           name: "Classic Cleaning",
+          includes: [
+            "Machine cleaning of floor",
+            "Cleaning of windows, window panes, window channels, and grills",
+            "Cleaning of balconies",
+            "Cleaning of washrooms",
+            "Cleaning of kitchen",
+            "Cleaning of cabinets and wardrobes externally",
+            "Cleaning of fans, tubes, switchboard, bulbs, door handles",
+          ],
+
           services: [
             {
               name: "1 bhk occupied",
@@ -252,6 +263,18 @@ const AllServices = () => {
         },
         {
           name: "Deep Cleaning",
+          includes: [
+            "Machine cleaning of floor",
+            "Cleaning of windows, window panes, window channels, and grills",
+            "Cleaning of balconies",
+            "Deep cleaning of washrooms",
+            "Deep cleaning of kitchen",
+            "Cleaning of cabinets and wardrobes externally",
+            "Cleaning of fans, tubes, switchboard, bulbs, door handles",
+            "Fridge, Microwave, and Chimney exterior cleaning",
+            "Dry vacuuming of sofa, carpet, curtains, mattress",
+          ],
+
           services: [
             {
               name: "1 bhk occupied",
@@ -434,7 +457,12 @@ const AllServices = () => {
         <Col key={index} xs={24} sm={12} md={8} lg={8} xl={8}>
           <Card
             onClick={() => openModal(service)}
-            style={{ height: "100%", display: "flex", flexDirection: "column",maxWidth: "100%", }}
+            style={{
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              maxWidth: "100%",
+            }}
             hoverable
             cover={
               <img
@@ -448,7 +476,11 @@ const AllServices = () => {
           </Card>
         </Col>
       ))}
-      <ServiceModal selectedService={selectedService} modalVisible={modalVisible} closeModal={closeModal} />
+      <ServiceModal
+        selectedService={selectedService}
+        modalVisible={modalVisible}
+        closeModal={closeModal}
+      />
     </Row>
   );
 };

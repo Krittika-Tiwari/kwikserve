@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, List } from "antd";
+import { Modal, List, Collapse, Button, Flex } from "antd";
 import { Service } from "./types";
 
 interface Props {
@@ -7,6 +7,8 @@ interface Props {
   modalVisible: boolean;
   closeModal: () => void;
 }
+
+const { Panel } = Collapse;
 
 const ServiceModal: React.FC<Props> = ({
   selectedService,
@@ -36,6 +38,17 @@ const ServiceModal: React.FC<Props> = ({
                 }}
               >
                 <h4>{facility.name}</h4>
+                {facility.includes && facility.includes.length > 0 && (
+                  <Collapse>
+                    <Panel header="Includes" key={""}>
+                      <ul>
+                        {facility.includes.map((item: any, index: any) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    </Panel>
+                  </Collapse>
+                )}
                 <List
                   style={{ width: "100%" }}
                   dataSource={facility.services}
@@ -49,7 +62,10 @@ const ServiceModal: React.FC<Props> = ({
                       }}
                     >
                       <span>{service.name}</span>
-                      <span>Price: {service.price}</span>
+                      <Flex align="center" gap={30}>
+                        <span>Price: {service.price}</span>
+                        <Button style={{backgroundColor:"#fca503", color:"white"}}>Book</Button>
+                      </Flex>
                     </List.Item>
                   )}
                 />

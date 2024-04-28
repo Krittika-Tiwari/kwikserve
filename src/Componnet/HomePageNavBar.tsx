@@ -465,6 +465,7 @@ function HomePageNavBar() {
             allowClear
             placeholder="Search for..."
             value={searchValue}
+            style={{color:"#fca503"}}
             onChange={handleSearchInputChange}
           />
           {searchValue !== "" && filteredFacilities.length > 0 ? (

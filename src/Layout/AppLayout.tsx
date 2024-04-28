@@ -104,9 +104,9 @@ function AppLayout() {
               <Col xs={24} sm={24} md={8} lg={6}>
                 <div style={{ textAlign: "left", color: "white" }}>
                   <h3>Contact Us</h3>
-                  <p><MailFilled  style={{color:"#fca503"}}/> contact@Kiwikserve.com</p>
-                  <p><PhoneFilled style={{color:"#fca503"}}/>  +1 123 456 7890</p>
-                  <p><EnvironmentFilled style={{color:"#fca503"}} /> 123 Street, City, Country</p>
+                  <p><MailFilled  style={{color:"#fca503"}}/> Kiwikserve8@gmail.com</p>
+                  <p><PhoneFilled style={{color:"#fca503"}}/>  +91 123 456 7890</p>
+                  <p><EnvironmentFilled style={{color:"#fca503"}} /> Bangalore Karnataka,India</p>
                 </div>
               </Col>
             </Row>

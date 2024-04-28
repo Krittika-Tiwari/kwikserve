@@ -8,6 +8,7 @@ export interface Service {
   export interface Facility {
     name: string;
     services: ServiceItem[];
+    includes?: string[];
   }
   
   export interface ServiceItem {
