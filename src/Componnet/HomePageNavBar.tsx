@@ -1,48 +1,39 @@
 import { Button, Flex, Input, Image } from "antd";
-import {
-  EnvironmentOutlined,
-  DownOutlined,
-  SearchOutlined,
-} from "@ant-design/icons";
+import { SearchOutlined } from "@ant-design/icons";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function HomePageNavBar() {
+  const navigate = useNavigate();
   return (
     <Flex align="center" justify="space-between">
-      <Flex align="end" style={{fontFamily: "Edu SA Beginner", fontWeight: "bold", color: "green", fontSize: "1.5rem", }}>
+      <Flex
+        gap={10}
+        align="end"
+        style={{
+          fontFamily: "Edu SA Beginner",
+          fontWeight: "bold",
+          color: "green",
+          fontSize: "1.5rem",
+        }}
+        onClick={() => navigate("/")}
+      >
         <Image
           preview={false}
-          style={{ width: "4rem" }}
+          style={{ width: "3rem" }}
           alt="logo"
           src={"HomeServicesLogo.jpg"}
         />{" "}
         Kwikserve
       </Flex>
+
       <Flex>
         <Flex
-          align="center"
-          justify="space-between"
-          style={{
-            width: "20vw",
-            borderRadius: "0.5rem",
-            border: "1px solid #d9d9d9",
-            margin: "0.5rem",
-            height: "3rem",
-            padding: "0.5rem",
-          }}
-        >
-          <Flex gap={2}>
-            <EnvironmentOutlined />
-            Chandigarh, India
-          </Flex>
-          <DownOutlined />
-        </Flex>
-        <Flex
           style={{
             width: "20vw",
             borderRadius: "0.5rem",
             margin: "0.5rem",
-            height: "3rem",
+            height: "2.5rem",
           }}
         >
           <Input
@@ -51,23 +42,35 @@ function HomePageNavBar() {
             placeholder="Search for..."
           />
         </Flex>
-      </Flex>
-      <Flex>
         <Button
+
           style={{
-            height: "3rem",
+            height: "2.5rem",
             margin: "0.5rem",
             fontSize: "1rem",
             width: "7rem",
             fontWeight: "bold",
           }}
+          onClick={() => navigate("/all-services")}
+        >
+         All Services
+        </Button>
+        <Button
+          style={{
+            height: "2.5rem",
+            margin: "0.5rem",
+            fontSize: "1rem",
+            width: "7rem",
+            fontWeight: "bold",
+          }}
+          onClick={() => navigate("/about")}
         >
           About Us
         </Button>
 
         <Button
           style={{
-            height: "3rem",
+            height: "2.5rem",
             margin: "0.5rem",
             fontSize: "1rem",
             width: "7rem",

@@ -1,7 +1,6 @@
 import {
   Button,
   Card,
-  Carousel,
   Flex,
   Image,
   Layout,
@@ -10,6 +9,7 @@ import {
   Typography,
 } from "antd";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const { Content } = Layout;
 const { Title, Text } = Typography;
@@ -17,6 +17,7 @@ const { Title, Text } = Typography;
 function HomePage() {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedService, setSelectedService] = useState<any>(null);
+  const navigate = useNavigate();
 
   // Function to handle opening the modal
   const openModal = (service: any) => {
@@ -34,7 +35,9 @@ function HomePage() {
     {
       name: "Women's Salon & Spa",
       imageUrl:
-        "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1678864013225-bfc1de.jpeg",
+        "https://media.istockphoto.com/id/851007946/photo/woman-getting-hair-shampooed-at-salon.jpg?s=612x612&w=0&k=20&c=1kRvk2iAy6rBdfrfeAz7fhqPz8pvY_dgKmq_fHmjmLU=",
+      description:
+        "Indulge in a pampering experience with our Women's Salon & Spa services. From trendy haircuts and vibrant hair coloring to rejuvenating spa treatments and relaxing massages, we offer a range of services tailored to enhance your beauty and well-being.",
       facilities: [
         "Haircut",
         "Hair Coloring",
@@ -50,7 +53,9 @@ function HomePage() {
     {
       name: "Men's Salon & Massage",
       imageUrl:
-        "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1710241114433-5cfa7c.jpeg",
+        "https://t4.ftcdn.net/jpg/04/69/68/17/360_F_469681744_FZWt6LKXLoCU4XVv8Cjx6ZFmwNlNLm7x.jpg",
+      description:
+        "Discover the ultimate grooming experience with our Men's Salon & Massage services. From classic haircuts and precise beard trims to relaxing massages and facial treatments, we provide a haven for modern gentlemen seeking style and relaxation.",
       facilities: [
         "Haircut",
         "Beard Trim",
@@ -65,7 +70,9 @@ function HomePage() {
     {
       name: "HVAC Services",
       imageUrl:
-        "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1679292077307-6143d7.jpeg",
+        "https://us.123rf.com/450wm/fabrikacrimea/fabrikacrimea2007/fabrikacrimea200702511/152298221-young-black-man-repairman-checking-an-outside-air-conditioner-unit.jpg?ver=6",
+      description:
+        "Ensure optimal comfort and air quality in your home or office with our HVAC (Heating, Ventilation, and Air Conditioning) Services. From installation and repair to maintenance and indoor air quality solutions, we offer comprehensive HVAC services to meet your needs.",
       facilities: [
         "AC Installation",
         "AC Repair",
@@ -78,6 +85,8 @@ function HomePage() {
       name: "House Cleaning",
       imageUrl:
         "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1681711961404-75dfec.jpeg",
+      description:
+        "Experience pristine cleanliness and hygiene with our House Cleaning services. Whether you need deep cleaning, regular maintenance, or specialized cleaning for specific areas, our professional cleaners are equipped to leave your home spotless and fresh.",
       facilities: [
         "Deep Cleaning",
         "Regular Cleaning",
@@ -92,6 +101,8 @@ function HomePage() {
       name: "Pest Control",
       imageUrl:
         "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1658402794135-faf080.png",
+      description:
+        "Protect your home or business from pests with our comprehensive Pest Control services. From general pest control and termite treatments to rodent and bed bug extermination, we employ effective solutions to ensure a pest-free environment.",
       facilities: [
         "General Pest Control",
         "Termite Control",
@@ -105,6 +116,8 @@ function HomePage() {
       name: "PreNatal Yoga",
       imageUrl:
         "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1705340729734-0a23f7.jpeg",
+      description:
+        "Experience the benefits of yoga during pregnancy with our PreNatal Yoga classes. Designed to promote physical and emotional well-being during pregnancy and prepare expectant mothers for childbirth, our classes offer gentle exercises, breathing techniques, and relaxation practices tailored to the needs of pregnant women.",
       facilities: [
         "Pre-natal Yoga",
         "Post-natal Yoga",
@@ -137,92 +150,22 @@ function HomePage() {
     },
   ];
 
+  const handleSeeAllServices = () => {
+    navigate("/all-services");
+  };
+
+  const displayedServices = services.slice(0, 3);
+
   return (
     <Layout>
       <Content style={{ backgroundColor: "white" }}>
-        <Flex vertical style={{ height: "80vh" }}>
-          <Carousel dotPosition="bottom" autoplay>
-            <div>
-              <div style={{ position: "relative" }}>
-                <Image
-                  style={{ height: "80vh", width: "100vw" }}
-                  preview={false}
-                  src="https://www.manmachinesolutions.com/wp-content/uploads/2014/08/DSC8558.jpg"
-                />
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    textAlign: "center",
-                    color: "#fff",
-                    zIndex: 1,
-                  }}
-                ></div>
-              </div>
-            </div>
-            <div>
-              <div style={{ position: "relative" }}>
-                <Image
-                  style={{ height: "80vh", width: "100vw" }}
-                  preview={false}
-                  src={"BeautySpa.jpg"}
-                />
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    textAlign: "center",
-                    color: "#fff",
-                    zIndex: 1,
-                  }}
-                ></div>
-              </div>
-            </div>
-            <div>
-              <div style={{ position: "relative" }}>
-                <Image
-                  style={{ height: "80vh", width: "100vw" }}
-                  preview={false}
-                  src={"HomePainting.jpg"}
-                />
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    textAlign: "center",
-                    color: "#fff",
-                    zIndex: 1,
-                  }}
-                ></div>
-              </div>
-            </div>
-            <div>
-              <div style={{ position: "relative" }}>
-                <Image
-                  style={{ height: "80vh", width: "100vw" }}
-                  preview={false}
-                  src={"HouseCleaning.jpg"}
-                />
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    textAlign: "center",
-                    color: "#fff",
-                    zIndex: 1,
-                  }}
-                ></div>
-              </div>
-            </div>
-          </Carousel>
+        <Flex justify="center" >
+          <Image
+            style={{ width: "100vw", height: "90vh" }}
+            preview={false}
+            alt="home services logo"
+            src={"https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aG9tZSUyMGludGVyaW9yfGVufDB8fDB8fHww"}
+          />
         </Flex>
         <Flex
           vertical
@@ -231,49 +174,55 @@ function HomePage() {
             marginTop: "4rem",
             marginBottom: "5rem",
             marginInline: "5rem",
+            position: "absolute",
+            top: "100%",
+            left: "45%",
+            transform: "translate(-50%, -50%)",
+            zIndex: 1,
+            textAlign: "center",
+            backgroundColor: "rgb(65 70 64 )",
+            padding: "2rem",
           }}
           gap={10}
         >
-          <Text
-            style={{
-              fontSize: "3rem",
-              fontWeight: "bold",
-              fontFamily: "Edu SA Beginner",
-              textAlign: "left",
-            }}
-          >
-            Our Services
-          </Text>
+          <Flex justify="space-between">
+            <Text
+              style={{
+                fontSize: "3rem",
+                fontWeight: "bold",
+                fontFamily: "Edu SA Beginner",
+                textAlign: "left",
+                color: "white",
+              }}
+            >
+              Our Services
+            </Text>
+            <Button style={{borderColor:"hsl(45.7deg 94.38% 48.82%)", color:"hsl(45.7deg 94.38% 48.82%)", fontWeight:"bold"}} onClick={handleSeeAllServices}>SEE All SERVICES</Button>
+          </Flex>
           <Flex>
-            {services.map((service, index) => (
+            {displayedServices.map((service, index) => (
               <Card
-                onClick={() => openModal(service)}
+                hoverable 
+             onClick={() => openModal(service)}
+
                 key={index}
-                style={{ width: "20vw" }}
-              >
-                <Flex
-                  justify="center"
-                  style={{
-                    backgroundColor: "rgba(245, 245, 245, 1.00)",
-                    height: "80%",
-                  }}
-                >
-                  <Image
-                    preview={false}
-                    style={{ width: "8rem" }}
+                style={{
+                  width: "20vw",
+                  marginLeft: "1rem",
+                  marginRight: "1rem",
+                }}
+                cover={
+                  <img
+                    alt={service.name}
                     src={service.imageUrl}
+                    style={{ width: "100", height: "10rem"  }}
                   />
-                </Flex>
-                <Text
-                  style={{
-                    textAlign: "center",
-                    fontSize: "1rem",
-                    fontFamily: "Edu SA Beginner",
-                    fontWeight: "bold",
-                  }}
-                >
-                  {service.name}
-                </Text>
+                }
+              >
+                <Card.Meta
+                  title={service.name}
+                  description={service.description}
+                />
               </Card>
             ))}
           </Flex>
@@ -282,6 +231,7 @@ function HomePage() {
         <Flex vertical style={{ marginInline: "5rem", marginBottom: "5rem" }}>
           <Text
             style={{
+              marginTop: "35rem",
               fontSize: "3rem",
               fontWeight: "bold",
               textAlign: "left",
@@ -419,6 +369,7 @@ function HomePage() {
                 height: "3rem",
                 borderColor: "#FFB6C1",
               }}
+              onClick={() => navigate("/about")}
             >
               Explore
             </Button>

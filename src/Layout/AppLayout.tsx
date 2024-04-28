@@ -7,14 +7,28 @@ const { Header, Footer } = Layout;
 
 function AppLayout() {
   const [isLoading, setIsLoading] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
+    }, 2000);
 
-    return () => clearTimeout(timer);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
+
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
@@ -22,6 +36,7 @@ function AppLayout() {
         <div
           style={{
             display: "flex",
+            backgroundColor: "white",
             alignItems: "center",
             justifyContent: "center",
             height: "100vh",
@@ -38,11 +53,22 @@ function AppLayout() {
         </div>
       ) : (
         <Layout>
-          <Header style={{ backgroundColor: "white", paddingInline: "100px" }}>
+          <Header
+            style={{
+              backgroundColor: isScrolled ? "rgba(0, 0, 0, 0.8)" : "transparent", 
+              paddingInline: "100px",
+              position: "fixed",
+              width: "100%",
+              zIndex: 1000,
+              transition: "background-color 0.3s ease",
+            }}
+          >
             <HomePageNavBar />
           </Header>
-          <Outlet />
-          <Footer style={{ backgroundColor: "#f5fcf2", }}>
+          
+            <Outlet />
+
+          <Footer style={{ backgroundColor: "#f5fcf2" }}>
             <Row gutter={[16, 16]} justify="space-around" align="middle">
               <Col xs={24} sm={24} md={6} lg={4}>
                 <img
