@@ -6,9 +6,6 @@ import { useNavigate } from "react-router-dom";
 function HomePageNavBar() {
   const [searchValue, setSearchValue] = useState("");
 
-
-
-
   const services = [
     {
       name: "Women's Salon & Spa",
@@ -470,45 +467,45 @@ function HomePageNavBar() {
             value={searchValue}
             onChange={handleSearchInputChange}
           />
-{searchValue !== "" && filteredFacilities.length > 0 ? (
-  <div
-    style={{
-      height: "20rem",
-      position: "absolute",
-      top: "4rem",
-      width: "19rem",
-      background: "white",
-      border: "1px solid #ccc",
-      borderRadius: "0.5rem",
-      boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-      zIndex: 1,
-      overflow: "auto",
-      padding: "1rem",
-    }}
-  >
-    <List bordered>
-      {filteredFacilities.map((item, index) => (
-        <List.Item key={index} style={{ marginBottom: "0.5rem", textAlign: "left" }}>
-          <Flex vertical>
-            <p
+          {searchValue !== "" && filteredFacilities.length > 0 ? (
+            <div
               style={{
-                margin: 0,
-                fontWeight: "bold",
-                marginBottom: "0.25rem",
+                height: "20rem",
+                position: "absolute",
+                top: "4rem",
+                width: "19rem",
+                background: "white",
+                border: "1px solid #ccc",
+                borderRadius: "0.5rem",
+                boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+                zIndex: 1,
+                overflow: "auto",
+                padding: "1rem",
               }}
             >
-              Facility: {item.facilityName}
-            </p>
-            <p style={{ margin: 0 }}>Service: {item.serviceName}</p>
-          </Flex>
-        </List.Item>
-      ))}
-    </List>
-  </div>
-) : null}
-
-
-          
+              <List bordered>
+                {filteredFacilities.map((item, index) => (
+                  <List.Item
+                    key={index}
+                    style={{ marginBottom: "0.5rem", textAlign: "left" }}
+                  >
+                    <Flex vertical>
+                      <p
+                        style={{
+                          margin: 0,
+                          fontWeight: "bold",
+                          marginBottom: "0.25rem",
+                        }}
+                      >
+                        Facility: {item.facilityName}
+                      </p>
+                      <p style={{ margin: 0 }}>Service: {item.serviceName}</p>
+                    </Flex>
+                  </List.Item>
+                ))}
+              </List>
+            </div>
+          ) : null}
         </Flex>
         <Button
           style={{

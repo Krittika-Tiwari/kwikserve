@@ -1,7 +1,8 @@
-import { Layout, Spin, Image, Col, Row } from "antd";
+import { Layout, Spin, Image, Col, Row, Divider } from "antd";
 import React, { useState, useEffect } from "react";
 import HomePageNavBar from "../Componnet/HomePageNavBar";
 import { Link, Outlet } from "react-router-dom";
+import { EnvironmentFilled, MailFilled, PhoneFilled } from "@ant-design/icons";
 
 const { Header, Footer, Content } = Layout;
 
@@ -71,8 +72,8 @@ function AppLayout() {
             <Outlet />
           </Content>
 
-          <Footer style={{ backgroundColor: "#f5fcf2" }}>
-            <Row gutter={[16, 16]} justify="space-around" align="middle">
+          <Footer style={{ backgroundColor: "#414640" }}>
+            <Row gutter={[16, 16]} justify="space-around" align="top">
               <Col xs={24} sm={24} md={6} lg={4}>
                 <img
                   src={"HomeServicesLogo.jpg"}
@@ -82,43 +83,37 @@ function AppLayout() {
               </Col>
 
               <Col xs={24} sm={24} md={8} lg={6}>
-                <div>
+                <div style={{ textAlign: "left", color: "white" }}>
                   <h3>About Us</h3>
-                  <p>
-                    <Link to="#">How it Works</Link>
-                  </p>
-                  <p>
-                    <Link to="#">Team</Link>
-                  </p>
-                  <p>
-                    <Link to="#">Careers</Link>
-                  </p>
+                  <p>How it Works</p>
+                  <p>Team</p>
+                  <p>Careers</p>
                 </div>
               </Col>
               <Col xs={24} sm={24} md={8} lg={6}>
-                <div>
+                <div style={{ textAlign: "left", color: "white" }}>
                   <h3>Services</h3>
-                  <p>
-                    <Link to="#">Home Cleaning</Link>
-                  </p>
-                  <p>
-                    <Link to="services#">Salon at Home</Link>
-                  </p>
-                  <p>
-                    <Link to="#">Pest Control</Link>
-                  </p>
+                  <p>Women's Salon & Spa</p>
+                  <p>Men's Salon & Massage</p>
+                  <p>HVAC Services</p>
+                  <p>House Cleaning</p>
+                  <p>Pest Control </p>
+                  <p>PreNatal Yoga </p>
                 </div>
               </Col>
               <Col xs={24} sm={24} md={8} lg={6}>
-                <div>
+                <div style={{ textAlign: "left", color: "white" }}>
                   <h3>Contact Us</h3>
-                  <p>Email: contact@urbancompany.com</p>
-                  <p>Phone: +1 123 456 7890</p>
-                  <p>Address: 123 Street, City, Country</p>
+                  <p><MailFilled  style={{color:"#fca503"}}/> contact@Kiwikserve.com</p>
+                  <p><PhoneFilled style={{color:"#fca503"}}/>  +1 123 456 7890</p>
+                  <p><EnvironmentFilled style={{color:"#fca503"}} /> 123 Street, City, Country</p>
                 </div>
               </Col>
             </Row>
-            <div style={{ textAlign: "center", marginTop: "20px" }}>
+            <Divider style={{ backgroundColor: "white" }} />
+            <div
+              style={{ textAlign: "center", marginTop: "20px", color: "white" }}
+            >
               <p>© 2024 Kiwikserve Company. All rights reserved.</p>
             </div>
           </Footer>

@@ -739,30 +739,33 @@ function HomePage() {
           </Flex>
         </Flex>
 
-        <Flex style={{ marginBottom: "8rem", position: "relative" }}>
+        <Flex  style={{ backgroundColor:"#ebedea",textAlign:"left"  }}>
+          <Flex style={{width:"60%"}}>
           <Image
             preview={false}
-            style={{ width: "100vw", height: "85vh" }}
-            src="https://wallpapercave.com/wp/wp4085230.jpg"
+            style={{ width: "100%", height: "85vh" }}
+            src={"services.jpg"}
           />
+          </Flex>
+          <Flex style={{width:"40%", padding:"2rem"}}>
           <div
             style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              textAlign: "center",
-              color: "black",
-              zIndex: 1,
-              backgroundColor: "white",
-              opacity: 0.8,
-              padding: "2rem",
+              // position: "absolute",
+              // top: "50%",
+              // left: "50%",
+              // transform: "translate(-50%, -50%)",
+              // textAlign: "center",
+              // color: "black",
+              // zIndex: 1,
+              // backgroundColor: "white",
+              // opacity: 0.8,
+              // padding: "2rem",
             }}
           >
-            <h1 style={{ fontFamily: "Edu SA Beginner", fontSize: "3rem" }}>
-              About Us
+            <h1 style={{  fontSize: "3rem" ,textDecoration:"underline", textDecorationColor:"#fca503"}}>
+              ABOUT US
             </h1>
-            <p style={{ fontFamily: "Edu SA Beginner", fontSize: "1.5rem" }}>
+            <p style={{ fontSize: "1.2rem" }}>
               KWIKSERVE was born from a vision to empower local artisans and
               skilled workers in urban areas. Faced with fierce competition and
               limited branding, we set out to hire, train, and transform these
@@ -772,9 +775,9 @@ function HomePage() {
             </p>
             <Button
               style={{
-                backgroundColor: "#FFB6C1", // Background color
+                backgroundColor: "#fca503", // Background color
                 color: "white", // Text color
-                fontFamily: "Edu SA Beginner",
+
                 borderRadius: "5px", // Border radius
                 width: "8rem",
                 cursor: "pointer", // Cursor on hover
@@ -788,6 +791,7 @@ function HomePage() {
               Explore
             </Button>
           </div>
+          </Flex>
         </Flex>
         <ServiceModal
           selectedService={selectedService}
