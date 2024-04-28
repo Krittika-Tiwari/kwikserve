@@ -427,14 +427,14 @@ const AllServices = () => {
 
   return (
     <Row
-      style={{ marginTop: "5rem", marginBottom: "5rem", paddingInline: "5rem" }}
+      style={{ marginTop: "5rem", marginBottom: "5rem", marginInline: "5rem" }}
       gutter={[16, 16]}
     >
       {services.map((service, index) => (
         <Col key={index} xs={24} sm={12} md={8} lg={8} xl={8}>
           <Card
             onClick={() => openModal(service)}
-            style={{ height: "100%", display: "flex", flexDirection: "column" }}
+            style={{ height: "100%", display: "flex", flexDirection: "column",maxWidth: "100%", }}
             hoverable
             cover={
               <img

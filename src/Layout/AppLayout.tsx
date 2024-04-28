@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import HomePageNavBar from "../Componnet/HomePageNavBar";
 import { Link, Outlet } from "react-router-dom";
 
-const { Header, Footer } = Layout;
+const { Header, Footer, Content } = Layout;
 
 function AppLayout() {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,7 +31,7 @@ function AppLayout() {
   };
 
   return (
-    <Layout style={{ minHeight: "100vh", }}>
+    <Layout style={{ minHeight: "100vh" }}>
       {isLoading ? (
         <div
           style={{
@@ -55,8 +55,10 @@ function AppLayout() {
         <Layout>
           <Header
             style={{
-              backgroundColor: isScrolled ? "rgba(0, 0, 0, 0.8)" : "transparent", 
-              paddingInline: "100px",
+              backgroundColor: isScrolled
+                ? "rgba(0, 0, 0, 0.8)"
+                : "transparent",
+
               position: "fixed",
               width: "100%",
               zIndex: 1000,
@@ -65,8 +67,9 @@ function AppLayout() {
           >
             <HomePageNavBar />
           </Header>
-          
+          <Content>
             <Outlet />
+          </Content>
 
           <Footer style={{ backgroundColor: "#f5fcf2" }}>
             <Row gutter={[16, 16]} justify="space-around" align="middle">

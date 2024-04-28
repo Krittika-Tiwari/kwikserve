@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import AppLayout from './Layout/AppLayout';
 import AboutUs from './Componnet/AboutUs';
 import AllServices from './Componnet/AllServices';
+import Subscription from './Componnet/Subscription';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path='/about' element={<AboutUs />} />
           <Route path='/all-services' element={<AllServices />} />
+          <Route path='all-subscriptions' element={<Subscription />} />
         </Route>
       </Routes>
     </div>

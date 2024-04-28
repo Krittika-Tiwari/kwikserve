@@ -1,18 +1,11 @@
-import {
-  Button,
-  Card,
-  Flex,
-  Image,
-  Layout,
-  Space,
-  Typography,
-} from "antd";
+import { Button, Card, Flex, Image, Layout, Typography } from "antd";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ServiceModal from "./ServicesModel";
+import { CheckCircleOutlined,  } from "@ant-design/icons";
 
 const { Content } = Layout;
-const { Title, Text } = Typography;
+const { Text } = Typography;
 
 function HomePage() {
   const [modalVisible, setModalVisible] = useState(false);
@@ -437,24 +430,65 @@ function HomePage() {
     },
   ];
 
-  const offers = [
+  const subscriptionData = [
     {
-      id: 1,
-      title: "3-Month Subscription",
-      subTitle: "Rs. 150",
-      buttonText: "Subscribe Now",
+      type: "Men's Hair and Grooming",
+      price: 4860,
+      discount: "10%",
+      services: [
+        { name: "Haircut and Beard Styling", sessionsPerMonth: 3 },
+        { name: "Detan", sessionsPerMonth: 2 },
+        { name: "Facial & Cleanup", sessionsPerMonth: 2 },
+        { name: "Hair Color", sessionsPerMonth: 2 },
+        { name: "Massage", sessionsPerMonth: 7 },
+      ],
     },
     {
-      id: 2,
-      title: "6-Month Subscription",
-      subTitle: "Rs. 225",
-      buttonText: "Subscribe Now",
+      type: "Women's Hair and Makeup Enhanced",
+      price: 5940,
+      discount: "10%",
+      services: [
+        { name: "Cut & Style", sessionsPerMonth: 4 },
+        { name: "Trim & Style", sessionsPerMonth: 4 },
+        { name: "Professional Makeup", sessionsPerMonth: 4 },
+      ],
     },
     {
-      id: 3,
-      title: "1-Year Subscription",
-      subTitle: "Rs. 350",
-      buttonText: "Subscribe Now",
+      type: "Classic Cleaning",
+      price: 5400,
+      discount: "10%",
+      services: [
+        { name: "1 BHK Occupied", price: 2519 },
+        { name: "1 BHK Vacant", price: 2249 },
+        { name: "2 BHK Occupied", price: 2969 },
+        { name: "2 BHK Vacant", price: 2609 },
+        { name: "3 BHK Occupied", price: 3869 },
+        { name: "3 BHK Vacant", price: 3419 },
+        { name: "4 BHK Occupied", price: 4499 },
+        { name: "4 BHK Vacant", price: 4049 },
+      ],
+    },
+    {
+      type: "Bathroom Cleaning Subscription",
+      price: 1350,
+      discount: "10%",
+      services: [
+        { name: "Classic Cleaning for 1 Bathroom", price: 359 },
+        { name: "Deep Cleaning for 1 Bathroom", price: 449 },
+        { name: "Classic Cleaning for 2 Bathrooms", price: 674 },
+        { name: "Deep Cleaning for 2 Bathrooms", price: 809 },
+        { name: "Classic Cleaning for 3 Bathrooms", price: 899 },
+        { name: "Deep Cleaning for 3 Bathrooms", price: 1169 },
+      ],
+    },
+    {
+      type: "Kitchen Cleaning Subscription",
+      price: 2025,
+      discount: "10%",
+      services: [
+        { name: "Classic Cleaning", price: 899 },
+        { name: "Deep Cleaning", price: 1529 },
+      ],
     },
   ];
 
@@ -462,7 +496,12 @@ function HomePage() {
     navigate("/all-services");
   };
 
+  const handleSeeAllSubscription = () => {
+    navigate("/all-subscriptions");
+  }
+
   const displayedServices = services.slice(0, 3);
+  const displayedOffer = subscriptionData.slice(0, 3);
 
   return (
     <Layout>
@@ -495,22 +534,24 @@ function HomePage() {
           }}
           gap={10}
         >
-          <Flex justify="space-between">
+          <Flex align="center" justify="space-between">
             <Text
               style={{
                 fontSize: "3rem",
                 fontWeight: "bold",
-                fontFamily: "Edu SA Beginner",
+                textDecoration: "underline",
+                textDecorationColor: "#fca503",
                 textAlign: "left",
                 color: "white",
               }}
             >
-              Our Services
+              OUR SERVICES
             </Text>
             <Button
               style={{
-                borderColor: "hsl(45.7deg 94.38% 48.82%)",
-                color: "hsl(45.7deg 94.38% 48.82%)",
+                borderRadius: 0,
+                borderColor: "#fca503",
+                color: "#fca503",
                 fontWeight: "bold",
               }}
               onClick={handleSeeAllServices}
@@ -528,6 +569,7 @@ function HomePage() {
                   width: "20vw",
                   marginLeft: "1rem",
                   marginRight: "1rem",
+                  borderRadius: 0,
                 }}
                 cover={
                   <img
@@ -546,81 +588,155 @@ function HomePage() {
           </Flex>
         </Flex>
 
-        <Flex vertical style={{ marginInline: "5rem", marginBottom: "5rem" }}>
-          <Text
+        <Flex vertical style={{ marginTop: "30rem" }}>
+          <Image
+            preview={false}
             style={{
-              marginTop: "35rem",
-              fontSize: "3rem",
-              fontWeight: "bold",
-              textAlign: "left",
-              fontFamily: "Edu SA Beginner",
-              marginBottom: "1rem",
+              position: "absolute",
+              top: "calc(10rem)", // Adjust the position as needed
+              left: "50%",
+              transform: "translateX(-50%)",
+              zIndex: 1,
+              padding: "2rem",
+              height: "80vh",
+              width: "70vw",
+            }}
+            src="https://img.freepik.com/free-photo/service-maintenance-worker-repairing_23-2149176724.jpg?size=626&ext=jpg&ga=GA1.1.553209589.1714176000&semt=ais"
+          />
+          <Flex
+            justify="center"
+            style={{
+              backgroundColor: "#ebedea",
+
+              height: "90vh",
             }}
           >
-            Subscription
-          </Text>
-          <div style={{ overflow: "hidden", position: "relative" }}>
-            <div style={{ overflowX: "auto", msOverflowStyle: "none" }}>
-              <Flex align="start" justify="flex-start" gap={10}>
-                {offers.map((offer, index) => (
-                  <Card
+            <Flex vertical>
+              <h2
+                style={{
+                  fontSize: "3rem",
+                  marginInlineStart: 0,
+                  marginInlineEnd: 0,
+                  marginBlockEnd: 0,
+                  marginBlockStart: 0,
+                  marginTop: "2rem",
+                }}
+              >
+                WHY CHOOSE US
+              </h2>
+              <Text style={{ fontSize: "1rem" }}>
+                The Boutique For Your Home & Business. Your One Stop Shop Where
+                You Come First.
+              </Text>
+            </Flex>
+          </Flex>
+
+          <Flex
+            style={{
+              backgroundColor: "#414640",
+
+              height: "90vh",
+            }}
+          >
+            r
+          </Flex>
+          <Flex
+            vertical
+            justify="center"
+            style={{
+              position: "absolute",
+              top: "calc(115rem)",
+              left: "50%",
+              transform: "translateX(-50%)",
+              zIndex: 1,
+              padding: "2rem",
+              height: "80vh",
+              width: "70vw",
+            }}
+            gap={10}
+          >
+            <Flex
+              justify="space-between"
+              align="center"
+              style={{ margin: "1rem" }}
+            >
+              <Text
+                style={{
+                  fontSize: "3rem",
+                  textDecoration: "underline",
+                  textDecorationColor: "#fca503",
+                  textAlign: "left",
+                  color: "white",
+                }}
+              >
+                SUBSCRIPTION
+              </Text>
+              <Button
+                style={{
+                  borderRadius: 0,
+                  borderColor: "#fca503",
+                  color: "#fca503",
+                  fontWeight: "bold",
+                }}
+                onClick={handleSeeAllSubscription}
+              >
+                SEE All SUBSCRIPTION
+              </Button>
+            </Flex>
+            <Flex style={{ textAlign: "left" }}>
+              {displayedOffer.map((subscription: any, index) => (
+                <Card
+                  hoverable
+                  key={index}
+                  title={subscription.type}
+                  style={{
+                    width: "30vw",
+                    marginLeft: "0.5rem",
+                    marginRight: "0.5rem",
+                    borderRadius: 0,
+                    height: "100%",
+                  }}
+                >
+                  <Flex vertical style={{ paddingInline: "1rem" }}>
+                    <p>
+                      <Flex gap={5} align="center">
+                        <h3>PRICE : </h3> ₹{subscription.price} (
+                        {subscription.discount} discount)
+                      </Flex>
+                    </p>
+                    <ul style={{ listStyle: "none", paddingInlineStart: "0" }}>
+                      {subscription.services.map((service: any, index: any) => (
+                        <li key={index}>
+                          <CheckCircleOutlined
+                            style={{
+                              marginRight: "0.6rem",
+                              fontSize: "1rem",
+                              color: "#fcbe03",
+                            }}
+                          />{" "}
+                          {service.name}{" "}
+                          {service.sessionsPerMonth &&
+                            `(Sessions per month: ${service.sessionsPerMonth})`}{" "}
+                          {service.price && `(Price: ₹${service.price})`}
+                        </li>
+                      ))}
+                    </ul>
+                  </Flex>
+                  {/* <Button
                     style={{
-                      width: "32.8%",
-                      height: "29vh",
-                      border: "1px solid #d9d9d9",
-                      flex: "0 0 auto",
-                      boxSizing: "border-box",
-                      flexDirection: "column",
-                      justifyContent: "space-between",
-                      backgroundColor: "#F0F8FF",
+                      marginTop: "auto",
+                      borderRadius: 0,
+                      backgroundColor: "#bbe691",
+                      borderColor: "#86c41b",
+                      fontWeight: "bold",
                     }}
-                    key={index}
                   >
-                    <Flex
-                      vertical
-                      align="start"
-                      justify="space-between"
-                      style={{ height: "25vh" }}
-                    >
-                      <Space direction="vertical" align="start">
-                        <Title
-                          level={2}
-                          style={{
-                            textAlign: "left",
-                            margin: 0,
-                            fontFamily: "Edu SA Beginner",
-                            fontWeight: "bold",
-                          }}
-                        >
-                          {offer.title}
-                        </Title>
-                        <Title
-                          level={4}
-                          style={{
-                            textAlign: "left",
-                            margin: 2,
-                            fontFamily: "Edu SA Beginner",
-                          }}
-                        >
-                          {offer.subTitle}
-                        </Title>
-                      </Space>
-                      <Button
-                        style={{
-                          marginTop: "2rem",
-                          backgroundColor: "#B2FFB2",
-                          color: "#006400",
-                        }}
-                      >
-                        {offer.buttonText}
-                      </Button>
-                    </Flex>
-                  </Card>
-                ))}
-              </Flex>
-            </div>
-            
-          </div>
+                    Buy Now
+                  </Button> */}
+                </Card>
+              ))}
+            </Flex>
+          </Flex>
         </Flex>
 
         <Flex style={{ marginBottom: "8rem", position: "relative" }}>
