@@ -1,6 +1,7 @@
 import React from "react";
 import { Modal, List, Collapse, Button, Flex } from "antd";
 import { Service } from "./types";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   selectedService: Service | null;
@@ -15,6 +16,14 @@ const ServiceModal: React.FC<Props> = ({
   modalVisible,
   closeModal,
 }) => {
+
+  const navigate = useNavigate();
+
+  const handleBook = (service: number,facality: number,FacilityserviceId: number) => {
+    console.log(service,facality,FacilityserviceId);
+   
+    navigate(`/ServicePaymentPage/${service}/${facality}/${FacilityserviceId}`);
+  };
   return (
     <Modal
       title={`${selectedService ? selectedService.name + " Facilities" : ""}`}
@@ -28,8 +37,8 @@ const ServiceModal: React.FC<Props> = ({
         <List
           style={{ width: "100%", paddingInline: "2rem" }}
           dataSource={selectedService.facilities}
-          renderItem={(facility) => (
-            <List.Item key={facility.name}>
+          renderItem={(facility, index) => (
+            <List.Item key={index}>
               <div
                 style={{
                   display: "flex",
@@ -52,9 +61,9 @@ const ServiceModal: React.FC<Props> = ({
                 <List
                   style={{ width: "100%" }}
                   dataSource={facility.services}
-                  renderItem={(service) => (
+                  renderItem={(service,subIndex) => (
                     <List.Item
-                      key={service.name}
+                      key={subIndex}
                       style={{
                         display: "flex",
                         justifyContent: "space-between",
@@ -64,7 +73,7 @@ const ServiceModal: React.FC<Props> = ({
                       <span>{service.name}</span>
                       <Flex align="center" gap={30}>
                         <span>Price: {service.price}</span>
-                        <Button style={{backgroundColor:"#fca503", color:"white"}}>Book</Button>
+                        <Button onClick={() => handleBook(selectedService.key,index,subIndex)} style={{backgroundColor:"#fca503", color:"white"}}>Book</Button>
                       </Flex>
                     </List.Item>
                   )}

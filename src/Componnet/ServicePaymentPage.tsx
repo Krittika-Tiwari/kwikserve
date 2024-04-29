@@ -1,13 +1,10 @@
-import { Button, Flex, Input, Image, List, Popover, Avatar } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
+import { Flex, Layout } from "antd";
+import { useParams } from "react-router-dom";
 
-function HomePageNavBar() {
-  const [searchValue, setSearchValue] = useState("");
-  const { loginWithRedirect } = useAuth0();
-  const { user, isAuthenticated, logout } = useAuth0();
+const { Content } = Layout;
+
+const ServicePaymentPage = () => {
+  const { service, facality, FacilityserviceId } = useParams();
 
   const services = [
     {
@@ -422,170 +419,30 @@ function HomePageNavBar() {
     },
   ];
 
-  const filteredFacilities = services.flatMap((service) =>
-    service.facilities
-      .filter((facility) =>
-        facility.name.toLowerCase().includes(searchValue.toLowerCase())
-      )
-      .map((facility) => ({
-        facilityName: service.name,
-        serviceName: facility.name,
-      }))
+  const selectedService = services.find(
+    (servicess) => String(servicess.key) === service
   );
 
-  const handleSearchInputChange = (e: any) => {
-    setSearchValue(e.target.value);
-  };
+  const selectedFacilityIndex = parseInt(facality || "0", 10) ;
+  const FacilityserviceIds= parseInt(FacilityserviceId || "0", 10) ;
+ 
 
-  const navigate = useNavigate();
+ 
+    console.log(selectedFacilityIndex);
+    const selectedFacility = selectedService && selectedService.facilities[selectedFacilityIndex];
+    const FacilityserviceIdss = selectedFacility && selectedFacility.services[FacilityserviceIds];
+    console.log(selectedFacility);
+    console.log(FacilityserviceIdss);
+  
+
+  
+
   return (
-    <Flex align="center" justify="space-between">
-      <Flex
-        gap={10}
-        align="end"
-        style={{
-          fontFamily: "Edu SA Beginner",
-          fontWeight: "bold",
-          color: "green",
-          fontSize: "1.5rem",
-        }}
-        onClick={() => navigate("/")}
-      >
-        <Image
-          preview={false}
-          style={{ width: "3rem" }}
-          alt="logo"
-          src={"HomeServicesLogo.jpg"}
-        />{" "}
-        Kwikserve
-      </Flex>
-
-      <Flex>
-        <Flex
-          style={{
-            width: "20vw",
-            borderRadius: "0.5rem",
-            margin: "0.5rem",
-            height: "2.5rem",
-          }}
-        >
-          <Input
-            prefix={<SearchOutlined />}
-            allowClear
-            placeholder="Search for..."
-            value={searchValue}
-            style={{ color: "#fca503" }}
-            onChange={handleSearchInputChange}
-          />
-          {searchValue !== "" && filteredFacilities.length > 0 ? (
-            <div
-              style={{
-                height: "20rem",
-                position: "absolute",
-                top: "4rem",
-                width: "19rem",
-                background: "white",
-                border: "1px solid #ccc",
-                borderRadius: "0.5rem",
-                boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-                zIndex: 1,
-                overflow: "auto",
-                padding: "1rem",
-              }}
-            >
-              <List bordered>
-                {filteredFacilities.map((item, index) => (
-                  <List.Item
-                    key={index}
-                    style={{ marginBottom: "0.5rem", textAlign: "left" }}
-                  >
-                    <Flex vertical>
-                      <p
-                        style={{
-                          margin: 0,
-                          fontWeight: "bold",
-                          marginBottom: "0.25rem",
-                        }}
-                      >
-                        Facility: {item.facilityName}
-                      </p>
-                      <p style={{ margin: 0 }}>Service: {item.serviceName}</p>
-                    </Flex>
-                  </List.Item>
-                ))}
-              </List>
-            </div>
-          ) : null}
-        </Flex>
-        <Button
-          style={{
-            height: "2.5rem",
-            margin: "0.5rem",
-            fontSize: "1rem",
-            width: "7rem",
-            fontWeight: "bold",
-          }}
-          onClick={() => navigate("/all-services")}
-        >
-          All Services
-        </Button>
-        <Button
-          style={{
-            height: "2.5rem",
-            margin: "0.5rem",
-            fontSize: "1rem",
-            width: "7rem",
-            fontWeight: "bold",
-          }}
-          onClick={() => navigate("/about")}
-        >
-          About Us
-        </Button>
-
-        {isAuthenticated && user ? (
-          <Popover
-            content={
-              <Button
-                onClick={() =>
-                  logout({ logoutParams: { returnTo: window.location.origin } })
-                }
-              >
-                Logout
-              </Button>
-            }
-            title={user.name}
-            trigger="click"
-          >
-            <Avatar
-              src={user.picture}
-              style={{
-                backgroundColor: "#87d068",
-                cursor: "pointer",
-                margin: "0.5rem",
-                height: "2.5rem",
-                width: "2.5rem",
-              }}
-            >
-              {user.name ? user.name[0].toUpperCase() : ""}
-            </Avatar>
-          </Popover>
-        ) : (
-          <Button
-            onClick={() => loginWithRedirect()}
-            style={{
-              height: "2.5rem",
-              margin: "0.5rem",
-              fontSize: "1rem",
-              width: "7rem",
-              fontWeight: "bold",
-            }}
-          >
-            Login
-          </Button>
-        )}
-      </Flex>
-    </Flex>
+    <Content>
+      <Flex>a</Flex>
+      <Flex>b</Flex>
+    </Content>
   );
-}
+};
 
-export default HomePageNavBar;
+export default ServicePaymentPage;

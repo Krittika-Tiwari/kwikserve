@@ -26,6 +26,7 @@ function HomePage() {
 
   const services = [
     {
+      key: 1,
       name: "Women's Salon & Spa",
       imageUrl:
         "https://media.istockphoto.com/id/851007946/photo/woman-getting-hair-shampooed-at-salon.jpg?s=612x612&w=0&k=20&c=1kRvk2iAy6rBdfrfeAz7fhqPz8pvY_dgKmq_fHmjmLU=",
@@ -120,6 +121,7 @@ function HomePage() {
       ],
     },
     {
+      key: 2,
       name: "Men's Salon & Massage",
       imageUrl:
         "https://t4.ftcdn.net/jpg/04/69/68/17/360_F_469681744_FZWt6LKXLoCU4XVv8Cjx6ZFmwNlNLm7x.jpg",
@@ -170,6 +172,7 @@ function HomePage() {
       ],
     },
     {
+      key: 3,
       name: "HVAC Services",
       imageUrl:
         "https://us.123rf.com/450wm/fabrikacrimea/fabrikacrimea2007/fabrikacrimea200702511/152298221-young-black-man-repairman-checking-an-outside-air-conditioner-unit.jpg?ver=6",
@@ -204,9 +207,11 @@ function HomePage() {
       ],
     },
     {
+      key: 4,
       name: "House Cleaning",
       imageUrl:
-        "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1681711961404-75dfec.jpeg",
+        "https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTAxL3Jhd3BpeGVsX29mZmljZV8zMl9pbWFnZV9vZl95b3VuZ19zbWlsaW5nX3dvbWFuX2luX2dsb3Zlc19jbGVhbl8xNDUwZTcyYS04ODcyLTRmYzktOTUxOC01ZWRmYzkyY2ViZmVfMS5qcGc.jpg",
+
       description:
         "Experience pristine cleanliness and hygiene with our House Cleaning services. Whether you need deep cleaning, regular maintenance, or specialized cleaning for specific areas, our professional cleaners are equipped to leave your home spotless and fresh.",
       facilities: [
@@ -354,9 +359,10 @@ function HomePage() {
       ],
     },
     {
+      key: 5,
       name: "Pest Control",
       imageUrl:
-        "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1658402794135-faf080.png",
+        "https://media.istockphoto.com/id/1066978818/photo/exterminator-working.jpg?s=612x612&w=0&k=20&c=sddrtDtVPnyn8jIukuNcyCQS0gm6I4GwQQ_CGvs9UYM=",
       description:
         "Protect your home or business from pests with our comprehensive Pest Control services. From general pest control and termite treatments to rodent and bed bug extermination, we employ effective solutions to ensure a pest-free environment.",
       facilities: [
@@ -404,9 +410,10 @@ function HomePage() {
       ],
     },
     {
+      key: 6,
       name: "PreNatal Yoga",
       imageUrl:
-        "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1705340729734-0a23f7.jpeg",
+        "https://static.wixstatic.com/media/e1f7f0_99d7a7988fa2423fa527e81bff8d7c74~mv2.jpg/v1/fill/w_2500,h_1666,al_c/e1f7f0_99d7a7988fa2423fa527e81bff8d7c74~mv2.jpg",
       description:
         "Experience the benefits of yoga during pregnancy with our PreNatal Yoga classes. Designed to promote physical and emotional well-being during pregnancy and prepare expectant mothers for childbirth, our classes offer gentle exercises, breathing techniques, and relaxation practices tailored to the needs of pregnant women.",
       facilities: [
@@ -530,7 +537,7 @@ function HomePage() {
             zIndex: 1,
             textAlign: "center",
             backgroundColor: "rgb(65 70 64 )",
-            padding: "2rem",
+            padding: "3rem",
           }}
           gap={10}
         >
@@ -588,7 +595,7 @@ function HomePage() {
           </Flex>
         </Flex>
 
-        <Flex vertical style={{ marginTop: "30rem" }}>
+        <Flex vertical style={{ marginTop: "33rem" }}>
           <Image
             preview={false}
             style={{
@@ -634,8 +641,7 @@ function HomePage() {
           <Flex
             style={{
               backgroundColor: "#414640",
-
-              height: "90vh",
+              height: "110vh",
             }}
           >
             r
@@ -645,12 +651,12 @@ function HomePage() {
             justify="center"
             style={{
               position: "absolute",
-              top: "calc(115rem)",
+              top: "calc(125rem)",
               left: "50%",
               transform: "translateX(-50%)",
               zIndex: 1,
               padding: "2rem",
-              height: "80vh",
+              height: "70vh",
               width: "70vw",
             }}
             gap={10}

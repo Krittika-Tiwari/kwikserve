@@ -20,6 +20,7 @@ const AllServices = () => {
 
   const services = [
     {
+      key: 1,
       name: "Women's Salon & Spa",
       imageUrl:
         "https://media.istockphoto.com/id/851007946/photo/woman-getting-hair-shampooed-at-salon.jpg?s=612x612&w=0&k=20&c=1kRvk2iAy6rBdfrfeAz7fhqPz8pvY_dgKmq_fHmjmLU=",
@@ -28,7 +29,6 @@ const AllServices = () => {
       facilities: [
         {
           name: "Haircut and styling",
-
           services: [
             {
               name: "Haircut and styling",
@@ -115,6 +115,7 @@ const AllServices = () => {
       ],
     },
     {
+      key: 2,
       name: "Men's Salon & Massage",
       imageUrl:
         "https://t4.ftcdn.net/jpg/04/69/68/17/360_F_469681744_FZWt6LKXLoCU4XVv8Cjx6ZFmwNlNLm7x.jpg",
@@ -165,6 +166,7 @@ const AllServices = () => {
       ],
     },
     {
+      key: 3,
       name: "HVAC Services",
       imageUrl:
         "https://us.123rf.com/450wm/fabrikacrimea/fabrikacrimea2007/fabrikacrimea200702511/152298221-young-black-man-repairman-checking-an-outside-air-conditioner-unit.jpg?ver=6",
@@ -199,6 +201,7 @@ const AllServices = () => {
       ],
     },
     {
+      key: 4,
       name: "House Cleaning",
       imageUrl:
         "https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTAxL3Jhd3BpeGVsX29mZmljZV8zMl9pbWFnZV9vZl95b3VuZ19zbWlsaW5nX3dvbWFuX2luX2dsb3Zlc19jbGVhbl8xNDUwZTcyYS04ODcyLTRmYzktOTUxOC01ZWRmYzkyY2ViZmVfMS5qcGc.jpg",
@@ -208,16 +211,6 @@ const AllServices = () => {
       facilities: [
         {
           name: "Classic Cleaning",
-          includes: [
-            "Machine cleaning of floor",
-            "Cleaning of windows, window panes, window channels, and grills",
-            "Cleaning of balconies",
-            "Cleaning of washrooms",
-            "Cleaning of kitchen",
-            "Cleaning of cabinets and wardrobes externally",
-            "Cleaning of fans, tubes, switchboard, bulbs, door handles",
-          ],
-
           services: [
             {
               name: "1 bhk occupied",
@@ -263,18 +256,6 @@ const AllServices = () => {
         },
         {
           name: "Deep Cleaning",
-          includes: [
-            "Machine cleaning of floor",
-            "Cleaning of windows, window panes, window channels, and grills",
-            "Cleaning of balconies",
-            "Deep cleaning of washrooms",
-            "Deep cleaning of kitchen",
-            "Cleaning of cabinets and wardrobes externally",
-            "Cleaning of fans, tubes, switchboard, bulbs, door handles",
-            "Fridge, Microwave, and Chimney exterior cleaning",
-            "Dry vacuuming of sofa, carpet, curtains, mattress",
-          ],
-
           services: [
             {
               name: "1 bhk occupied",
@@ -372,6 +353,7 @@ const AllServices = () => {
       ],
     },
     {
+      key: 5,
       name: "Pest Control",
       imageUrl:
         "https://media.istockphoto.com/id/1066978818/photo/exterminator-working.jpg?s=612x612&w=0&k=20&c=sddrtDtVPnyn8jIukuNcyCQS0gm6I4GwQQ_CGvs9UYM=",
@@ -422,6 +404,7 @@ const AllServices = () => {
       ],
     },
     {
+      key: 6,
       name: "PreNatal Yoga",
       imageUrl:
         "https://static.wixstatic.com/media/e1f7f0_99d7a7988fa2423fa527e81bff8d7c74~mv2.jpg/v1/fill/w_2500,h_1666,al_c/e1f7f0_99d7a7988fa2423fa527e81bff8d7c74~mv2.jpg",

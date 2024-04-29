@@ -3,6 +3,7 @@ export interface Service {
     imageUrl: string;
     description: string;
     facilities: Facility[];
+    key: number
   }
   
   export interface Facility {
