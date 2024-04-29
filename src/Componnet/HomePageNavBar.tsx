@@ -202,6 +202,16 @@ function HomePageNavBar() {
       facilities: [
         {
           name: "Classic Cleaning",
+          includes: [
+            "Machine cleaning of floor",
+            "Cleaning of windows, window panes, window channels, and grills",
+            "Cleaning of balconies",
+            "Cleaning of washrooms",
+            "Cleaning of kitchen",
+            "Cleaning of cabinets and wardrobes externally",
+            "Cleaning of fans, tubes, switchboard, bulbs, door handles",
+          ],
+
           services: [
             {
               name: "1 bhk occupied",
@@ -247,6 +257,18 @@ function HomePageNavBar() {
         },
         {
           name: "Deep Cleaning",
+          includes: [
+            "Machine cleaning of floor",
+            "Cleaning of windows, window panes, window channels, and grills",
+            "Cleaning of balconies",
+            "Deep cleaning of washrooms",
+            "Deep cleaning of kitchen",
+            "Cleaning of cabinets and wardrobes externally",
+            "Cleaning of fans, tubes, switchboard, bulbs, door handles",
+            "Fridge, Microwave, and Chimney exterior cleaning",
+            "Dry vacuuming of sofa, carpet, curtains, mattress",
+          ],
+
           services: [
             {
               name: "1 bhk occupied",

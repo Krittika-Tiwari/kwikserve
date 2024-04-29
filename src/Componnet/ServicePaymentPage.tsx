@@ -1,4 +1,4 @@
-import { Flex, Layout } from "antd";
+import { Card, Flex, Image, Layout } from "antd";
 import { useParams } from "react-router-dom";
 
 const { Content } = Layout;
@@ -199,6 +199,16 @@ const ServicePaymentPage = () => {
       facilities: [
         {
           name: "Classic Cleaning",
+          includes: [
+            "Machine cleaning of floor",
+            "Cleaning of windows, window panes, window channels, and grills",
+            "Cleaning of balconies",
+            "Cleaning of washrooms",
+            "Cleaning of kitchen",
+            "Cleaning of cabinets and wardrobes externally",
+            "Cleaning of fans, tubes, switchboard, bulbs, door handles",
+          ],
+
           services: [
             {
               name: "1 bhk occupied",
@@ -244,6 +254,18 @@ const ServicePaymentPage = () => {
         },
         {
           name: "Deep Cleaning",
+          includes: [
+            "Machine cleaning of floor",
+            "Cleaning of windows, window panes, window channels, and grills",
+            "Cleaning of balconies",
+            "Deep cleaning of washrooms",
+            "Deep cleaning of kitchen",
+            "Cleaning of cabinets and wardrobes externally",
+            "Cleaning of fans, tubes, switchboard, bulbs, door handles",
+            "Fridge, Microwave, and Chimney exterior cleaning",
+            "Dry vacuuming of sofa, carpet, curtains, mattress",
+          ],
+
           services: [
             {
               name: "1 bhk occupied",
@@ -423,24 +445,120 @@ const ServicePaymentPage = () => {
     (servicess) => String(servicess.key) === service
   );
 
-  const selectedFacilityIndex = parseInt(facality || "0", 10) ;
-  const FacilityserviceIds= parseInt(FacilityserviceId || "0", 10) ;
- 
+  const selectedFacilityIndex = parseInt(facality || "0", 10);
+  const FacilityserviceIds = parseInt(FacilityserviceId || "0", 10);
 
- 
-    console.log(selectedFacilityIndex);
-    const selectedFacility = selectedService && selectedService.facilities[selectedFacilityIndex];
-    const FacilityserviceIdss = selectedFacility && selectedFacility.services[FacilityserviceIds];
-    console.log(selectedFacility);
-    console.log(FacilityserviceIdss);
-  
-
-  
+  const selectedFacility =
+    selectedService && selectedService.facilities[selectedFacilityIndex];
+  const FacilityserviceIdss =
+    selectedFacility && selectedFacility.services[FacilityserviceIds];
 
   return (
     <Content>
-      <Flex>a</Flex>
-      <Flex>b</Flex>
+      <Flex
+        style={{
+          marginTop: "6rem",
+          marginInline: "5rem",
+          marginBottom: "5rem",
+        }}
+      >
+        <Flex
+          vertical
+          justify="center"
+          align="center"
+          style={{ width: "50%", marginRight: "1rem" }}
+        >
+          {selectedService && (
+            <Flex
+              vertical
+             
+              align="center"
+              justify="center"
+              style={{
+                padding: "2rem",
+                border: "1px solid #ccc",
+                borderRadius: "0.5rem",
+                boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+              }}
+            >
+              <Image
+                style={{
+                  width: "100%",
+                  maxWidth: "30vw",
+                  marginBottom: "1rem",
+                  borderRadius: "0.5rem",
+                }}
+                preview={false}
+                src={selectedService.imageUrl}
+              />
+              <Flex gap={5}  vertical align="center" style={{width:"95%"}}>
+                <h3
+                  style={{
+                    marginBottom: "0.5rem",
+                    fontSize: "1.5rem",
+                    fontWeight: "bold",
+                    color: "#333",
+                  }}
+                >
+                  {selectedService.name}
+                </h3>
+                <p style={{ marginBottom: "1rem", color: "#666" }}>
+                  {selectedService.description}
+                </p>
+                {selectedFacility && (
+                  <Card
+                    title={selectedFacility.name}
+                    style={{
+                      width:"100%",
+                      marginBottom: "1rem",
+                      borderRadius: "0.5rem",
+                      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                    }}
+                  >
+                    {FacilityserviceIdss && (
+                      <Flex
+                        style={{
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          padding: "0.5rem 1rem",
+                          background: "#f0f0f0",
+                          borderRadius: "0.5rem",
+                        }}
+                      >
+                        <span style={{ color: "#333" }}>
+                          {FacilityserviceIdss.name}
+                        </span>
+                        <span style={{ marginLeft: "1rem", color: "#333" }}>
+                          {" "}
+                          {/* Increased space */}
+                          Rs: {FacilityserviceIdss.price}
+                        </span>
+                      </Flex>
+                    )}
+                  </Card>
+                )}
+              </Flex>
+            </Flex>
+          )}
+        </Flex>
+
+        {/* Right Side */}
+        <Flex
+          style={{
+            width: "50%",
+            marginLeft: "1rem",
+            justifyContent: "center",
+            alignItems: "center",
+            background: "#f9f9f9",
+            borderRadius: "0.5rem",
+            boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+          }}
+        >
+          <span style={{ fontSize: "2rem", fontWeight: "bold", color: "#333" }}>
+            b
+          </span>
+        </Flex>
+      </Flex>
     </Content>
   );
 };
