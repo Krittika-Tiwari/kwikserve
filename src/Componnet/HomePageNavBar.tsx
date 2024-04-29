@@ -1,4 +1,4 @@
-import { Button, Flex, Input, Image, List } from "antd";
+import { Button, Flex, Input, Image, List, Popover, Avatar } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 function HomePageNavBar() {
   const [searchValue, setSearchValue] = useState("");
   const { loginWithRedirect } = useAuth0();
+  const { user, isAuthenticated, logout } = useAuth0();
 
   const services = [
     {
@@ -535,18 +536,47 @@ function HomePageNavBar() {
           About Us
         </Button>
 
-        <Button
-          onClick={() => loginWithRedirect()}
-          style={{
-            height: "2.5rem",
-            margin: "0.5rem",
-            fontSize: "1rem",
-            width: "7rem",
-            fontWeight: "bold",
-          }}
-        >
-          Login
-        </Button>
+        {isAuthenticated && user ? (
+          <Popover
+            content={
+              <Button
+                onClick={() =>
+                  logout({ logoutParams: { returnTo: window.location.origin } })
+                }
+              >
+                Logout
+              </Button>
+            }
+            title={user.name}
+            trigger="click"
+          >
+            <Avatar
+              src={user.picture}
+              style={{
+                backgroundColor: "#87d068",
+                cursor: "pointer",
+                margin: "0.5rem",
+                height: "2.5rem",
+                width: "2.5rem",
+              }}
+            >
+              {user.name ? user.name[0].toUpperCase() : ""}
+            </Avatar>
+          </Popover>
+        ) : (
+          <Button
+            onClick={() => loginWithRedirect()}
+            style={{
+              height: "2.5rem",
+              margin: "0.5rem",
+              fontSize: "1rem",
+              width: "7rem",
+              fontWeight: "bold",
+            }}
+          >
+            Login
+          </Button>
+        )}
       </Flex>
     </Flex>
   );
