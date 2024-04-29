@@ -2,9 +2,11 @@ import { Button, Flex, Input, Image, List } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function HomePageNavBar() {
   const [searchValue, setSearchValue] = useState("");
+  const { loginWithRedirect } = useAuth0();
 
   const services = [
     {
@@ -465,7 +467,7 @@ function HomePageNavBar() {
             allowClear
             placeholder="Search for..."
             value={searchValue}
-            style={{color:"#fca503"}}
+            style={{ color: "#fca503" }}
             onChange={handleSearchInputChange}
           />
           {searchValue !== "" && filteredFacilities.length > 0 ? (
@@ -534,6 +536,7 @@ function HomePageNavBar() {
         </Button>
 
         <Button
+          onClick={() => loginWithRedirect()}
           style={{
             height: "2.5rem",
             margin: "0.5rem",
