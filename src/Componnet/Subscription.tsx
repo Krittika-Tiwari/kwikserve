@@ -1,11 +1,13 @@
 import { CheckCircleOutlined } from "@ant-design/icons";
 import { Card, Col, Flex, Row, Typography } from "antd";
 import "./Subscription.css";
+import { useNavigate } from "react-router-dom";
 
 
 const { Title, Paragraph } = Typography;
 
 const Subscription = () => {
+  const navigate = useNavigate();
   const subscriptionData = [
     {
       type: "Men's Hair and Grooming",
@@ -68,6 +70,10 @@ const Subscription = () => {
     },
   ];
 
+  const handelSubscriptionPayment = (id: number) => {
+    navigate(`/subscriptionPayment/${id}`);
+  };
+
   return (
     <Row
       style={{
@@ -106,6 +112,7 @@ const Subscription = () => {
             }}
           >
             <Card
+              onClick={() => handelSubscriptionPayment(index)}
               className="subscription-card"
               hoverable
               key={index}

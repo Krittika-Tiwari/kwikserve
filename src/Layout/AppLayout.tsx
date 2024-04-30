@@ -1,8 +1,16 @@
 import { Layout, Spin, Image, Col, Row, Divider } from "antd";
 import React, { useState, useEffect } from "react";
 import HomePageNavBar from "../Componnet/HomePageNavBar";
-import {  Outlet } from "react-router-dom";
-import { EnvironmentFilled, MailFilled, PhoneFilled } from "@ant-design/icons";
+import { Link, Outlet } from "react-router-dom";
+import {
+  EnvironmentFilled,
+  FacebookOutlined,
+  InstagramOutlined,
+  LinkedinFilled,
+  MailFilled,
+  PhoneFilled,
+  YoutubeFilled,
+} from "@ant-design/icons";
 
 const { Header, Footer, Content } = Layout;
 
@@ -104,13 +112,67 @@ function AppLayout() {
               <Col xs={24} sm={24} md={8} lg={6}>
                 <div style={{ textAlign: "left", color: "white" }}>
                   <h3>Contact Us</h3>
-                  <p><MailFilled  style={{color:"#fca503"}}/> Kiwikserve8@gmail.com</p>
-                  <p><PhoneFilled style={{color:"#fca503"}}/>  +91 123 456 7890</p>
-                  <p><EnvironmentFilled style={{color:"#fca503"}} /> Bangalore Karnataka,India</p>
+                  <p>
+                    <MailFilled style={{ color: "#fca503" }} />{" "}
+                    Kiwikserve8@gmail.com
+                  </p>
+                  <p>
+                    <PhoneFilled style={{ color: "#fca503" }} /> +91 123 456
+                    7890
+                  </p>
+                  <p>
+                    <EnvironmentFilled style={{ color: "#fca503" }} /> Bangalore
+                    Karnataka,India
+                  </p>
                 </div>
               </Col>
             </Row>
             <Divider style={{ backgroundColor: "white" }} />
+            <div
+              style={{ textAlign: "center", marginTop: "20px", color: "white" }}
+            >
+              {/* <p>Connect with us:</p> */}
+              <Link to="https://www.facebook.com/profile.php">
+                <FacebookOutlined
+                  style={{
+                    fontSize: "24px",
+                    color: "white",
+                    marginRight: "10px",
+                  }}
+                />
+              </Link>
+              <Link to="https://www.youtube.com/@kwikserve">
+                <YoutubeFilled
+                  style={{
+                    fontSize: "24px",
+                    color: "white",
+                    marginRight: "10px",
+                  }}
+                />
+              </Link>
+              <Link to="https://www.instagram.com/kwikserv">
+                <InstagramOutlined
+                  style={{
+                    fontSize: "24px",
+                    color: "white",
+                    marginRight: "10px",
+                  }}
+                />
+              </Link>
+              <Link
+                to="https://www.linkedin.com/in/kwikserve-73456294/recent-activity/all/"
+              >
+                <LinkedinFilled
+                  style={{
+                    fontSize: "24px",
+                    color: "white",
+                    marginRight: "10px",
+                  }}
+                />
+              </Link>
+              
+           
+            </div>
             <div
               style={{ textAlign: "center", marginTop: "20px", color: "white" }}
             >

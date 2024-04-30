@@ -2,7 +2,7 @@ import { Button, Card, Flex, Image, Layout, Typography } from "antd";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ServiceModal from "./ServicesModel";
-import { CheckCircleOutlined,  } from "@ant-design/icons";
+import { CheckCircleOutlined } from "@ant-design/icons";
 
 const { Content } = Layout;
 const { Text } = Typography;
@@ -527,7 +527,11 @@ function HomePage() {
 
   const handleSeeAllSubscription = () => {
     navigate("/all-subscriptions");
-  }
+  };
+
+  const handelSubscriptionPayment = (id: number) => {
+    navigate(`/subscriptionPayment/${id}`);
+  };
 
   const displayedServices = services.slice(0, 3);
   const displayedOffer = subscriptionData.slice(0, 3);
@@ -717,6 +721,7 @@ function HomePage() {
                   hoverable
                   key={index}
                   title={subscription.type}
+                  onClick={() => handelSubscriptionPayment(index)}
                   style={{
                     width: "30vw",
                     marginLeft: "0.5rem",
@@ -767,58 +772,67 @@ function HomePage() {
           </Flex>
         </Flex>
 
-        <Flex  style={{ backgroundColor:"#ebedea",textAlign:"left"  }}>
-          <Flex style={{width:"60%"}}>
-          <Image
-            preview={false}
-            style={{ width: "100%", height: "85vh" }}
-            src={"services.jpg"}
-          />
+        <Flex style={{ backgroundColor: "#ebedea", textAlign: "left" }}>
+          <Flex style={{ width: "60%" }}>
+            <Image
+              preview={false}
+              style={{ width: "100%", height: "85vh" }}
+              src={"services.jpg"}
+            />
           </Flex>
-          <Flex style={{width:"40%", padding:"2rem"}}>
-          <div
-            style={{
-              // position: "absolute",
-              // top: "50%",
-              // left: "50%",
-              // transform: "translate(-50%, -50%)",
-              // textAlign: "center",
-              // color: "black",
-              // zIndex: 1,
-              // backgroundColor: "white",
-              // opacity: 0.8,
-              // padding: "2rem",
-            }}
-          >
-            <h1 style={{  fontSize: "3rem" ,textDecoration:"underline", textDecorationColor:"#fca503"}}>
-              ABOUT US
-            </h1>
-            <p style={{ fontSize: "1.2rem" }}>
-              KWIKSERVE was born from a vision to empower local artisans and
-              skilled workers in urban areas. Faced with fierce competition and
-              limited branding, we set out to hire, train, and transform these
-              talented individuals. We provided them with the tools, skills, and
-              knowledge to thrive in the competitive market, turning their small
-              businesses into efficient, customer-focused enterprises. text
-            </p>
-            <Button
-              style={{
-                backgroundColor: "#fca503", // Background color
-                color: "white", // Text color
-
-                borderRadius: "5px", // Border radius
-                width: "8rem",
-                cursor: "pointer", // Cursor on hover
-                fontSize: "1.5rem", // Font size
-                marginTop: "1rem",
-                height: "3rem",
-                borderColor: "#FFB6C1",
-              }}
-              onClick={() => navigate("/about")}
+          <Flex style={{ width: "40%", padding: "2rem" }}>
+            <div
+              style={
+                {
+                  // position: "absolute",
+                  // top: "50%",
+                  // left: "50%",
+                  // transform: "translate(-50%, -50%)",
+                  // textAlign: "center",
+                  // color: "black",
+                  // zIndex: 1,
+                  // backgroundColor: "white",
+                  // opacity: 0.8,
+                  // padding: "2rem",
+                }
+              }
             >
-              Explore
-            </Button>
-          </div>
+              <h1
+                style={{
+                  fontSize: "3rem",
+                  textDecoration: "underline",
+                  textDecorationColor: "#fca503",
+                }}
+              >
+                ABOUT US
+              </h1>
+              <p style={{ fontSize: "1.2rem" }}>
+                KWIKSERVE was born from a vision to empower local artisans and
+                skilled workers in urban areas. Faced with fierce competition
+                and limited branding, we set out to hire, train, and transform
+                these talented individuals. We provided them with the tools,
+                skills, and knowledge to thrive in the competitive market,
+                turning their small businesses into efficient, customer-focused
+                enterprises. text
+              </p>
+              <Button
+                style={{
+                  backgroundColor: "#fca503", // Background color
+                  color: "white", // Text color
+
+                  borderRadius: "5px", // Border radius
+                  width: "8rem",
+                  cursor: "pointer", // Cursor on hover
+                  fontSize: "1.5rem", // Font size
+                  marginTop: "1rem",
+                  height: "3rem",
+                  borderColor: "#FFB6C1",
+                }}
+                onClick={() => navigate("/about")}
+              >
+                Explore
+              </Button>
+            </div>
           </Flex>
         </Flex>
         <ServiceModal
