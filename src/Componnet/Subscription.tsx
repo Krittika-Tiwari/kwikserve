@@ -1,5 +1,9 @@
 import { CheckCircleOutlined } from "@ant-design/icons";
-import { Card, Col, Flex, Row } from "antd";
+import { Card, Col, Flex, Row, Typography } from "antd";
+import "./Subscription.css";
+
+
+const { Title, Paragraph } = Typography;
 
 const Subscription = () => {
   const subscriptionData = [
@@ -66,22 +70,48 @@ const Subscription = () => {
 
   return (
     <Row
-      style={{ marginTop: "5rem", marginBottom: "5rem", marginInline: "5rem" }}
+      style={{
+        marginTop: "5rem",
+        marginBottom: "10rem",
+        marginInline: "15rem",
+      }}
       gutter={[16, 16]}
     >
+      <Col span={24}>
+        <Flex
+          vertical
+          style={{
+            textAlign: "center",
+            marginBottom: "2rem",
+          }}
+        >
+          <Title
+            level={1}
+            style={{ color: "rgb(65, 70, 64)", fontWeight: "bold", textDecoration: "underline", textDecorationColor: "#fca503" }}
+          >
+            Subscription Plans
+          </Title>
+          <Paragraph style={{ color: "rgb(65, 70, 64)", fontSize: "1.2rem" }}>
+            Choose from our subscription plans tailored to meet your needs.
+          </Paragraph>
+        </Flex>
+      </Col>
       {subscriptionData.map((subscription, index) => (
         <Col key={index} xs={24} sm={12} md={8} lg={8} xl={8}>
-          <Flex vertical style={{ textAlign: "left" , height: "100%" ,  }}>
+          <Flex
+            vertical
+            style={{
+              textAlign: "left",
+              height: "100%",
+            }}
+          >
             <Card
+              className="subscription-card"
               hoverable
               key={index}
               title={subscription.type}
-              style={{
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-                maxWidth: "100%",
-              }}
+              bordered
+              
             >
               <Flex vertical style={{ paddingInline: "1rem" }}>
                 <p>
@@ -91,7 +121,7 @@ const Subscription = () => {
                   </Flex>
                 </p>
                 <ul style={{ listStyle: "none", paddingInlineStart: "0" }}>
-                  {subscription.services.map((service: any, index: any) => (
+                  {subscription.services.map((service: any, index) => (
                     <li key={index}>
                       <CheckCircleOutlined
                         style={{

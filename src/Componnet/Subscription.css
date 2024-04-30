@@ -1,0 +1,27 @@
+.subscription-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid gray;
+    color: rgb(65, 70, 64);
+    background: #ebedea;
+    transition: background-color 0.3s;
+  }
+  
+  .subscription-card:hover {
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 1px solid gray;
+}
+
+.ant-card-head:hover {
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 1px solid gray;
+}
