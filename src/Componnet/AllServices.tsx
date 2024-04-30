@@ -1,7 +1,9 @@
-import { Card, Col, Row } from "antd";
+import { Card, Col, Flex, Row,Typography } from "antd";
 import { useState } from "react";
 import ServiceModal from "./ServicesModel";
 const { Meta } = Card;
+
+const { Title, Paragraph } = Typography;
 
 const AllServices = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -455,9 +457,28 @@ const AllServices = () => {
 
   return (
     <Row
-      style={{ marginTop: "5rem", marginBottom: "5rem", marginInline: "5rem" }}
+      style={{ marginTop: "3rem", marginBottom: "8rem", marginInline: "12rem" }}
       gutter={[16, 16]}
     >
+      <Col span={24}>
+        <Flex
+          vertical
+          style={{
+            textAlign: "center",
+            marginBottom: "2rem",
+          }}
+        >
+          <Title
+            level={1}
+            style={{ color: "rgb(65, 70, 64)", fontWeight: "bold", textDecoration: "underline", textDecorationColor: "#fca503",fontSize: "3.5rem" }}
+          >
+           Our Services
+          </Title>
+          <Paragraph style={{ color: "rgb(65, 70, 64)", fontSize: "1.2rem" }}>
+          Explore a diverse range of tailored solutions, from grooming and wellness to home maintenance and beyond
+          </Paragraph>
+        </Flex>
+      </Col>
       {services.map((service, index) => (
         <Col key={index} xs={24} sm={12} md={8} lg={8} xl={8}>
           <Card
@@ -467,13 +488,19 @@ const AllServices = () => {
               display: "flex",
               flexDirection: "column",
               maxWidth: "100%",
+              borderColor: "#acaeb0",
+              borderRadius: "1rem",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+              padding: "1rem",
+              backgroundColor: "#ebedea"
+              
             }}
             hoverable
             cover={
               <img
                 alt={service.name}
                 src={service.imageUrl}
-                style={{ height: "18rem", width: "100%" }}
+                style={{ height: "15rem", width: "100%", }}
               />
             }
           >

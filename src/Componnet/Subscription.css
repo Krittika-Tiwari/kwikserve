@@ -19,9 +19,3 @@
     border: 1px solid gray;
 }
 
-.ant-card-head:hover {
-    backdrop-filter: blur(5px);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: 1px solid gray;
-}

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useState } from "react";
 import Lottie from "lottie-react";
-import  hello from "../Assets/hello.json";
+import  cat from "../Assets/cat.json";
 
 const { Content } = Layout;
 
@@ -461,9 +461,9 @@ const ServicePaymentPage = () => {
 
 
     const handleLogin = async () => {
-      setIsLoading(true); // Set loading state to true
+      setIsLoading(true); 
       try {
-        await loginWithRedirect(); // Redirect to Auth0 login page
+        await loginWithRedirect(); 
       } catch (error) {
         console.error("Login error:", error);
       } finally {
@@ -561,13 +561,15 @@ const ServicePaymentPage = () => {
           )}
         </Flex>
 
-        {/* Right Side */}
+       
         <Flex
+        // align="center"
+        justify="center"
+      
           style={{
             width: "50%",
             marginLeft: "1rem",
-            justifyContent: "center",
-            alignItems: "center",
+            
             background: "#f9f9f9",
             borderRadius: "0.5rem",
             boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
@@ -575,7 +577,7 @@ const ServicePaymentPage = () => {
         >
           {!isAuthenticated ? (
             <div>
-              <Lottie style={{ width: "35vw" }} animationData={hello} loop={true} />
+              <Lottie style={{ width: "35vw",height:"30vw" }} animationData={cat} loop={true} />
               <h3 >Please log in to continue.</h3>
               <Button type="primary" onClick={handleLogin} style={{backgroundColor: "#fca503", width: "10vw"}} loading={isLoading}>
                 Log In
