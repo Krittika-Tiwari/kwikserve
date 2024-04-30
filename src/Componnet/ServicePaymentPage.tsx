@@ -1,10 +1,16 @@
-import { Card, Flex, Image, Layout } from "antd";
+import { Button, Card, Flex, Image, Layout } from "antd";
 import { useParams } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useState } from "react";
+import Lottie from "lottie-react";
+import  hello from "../Assets/hello.json";
 
 const { Content } = Layout;
 
 const ServicePaymentPage = () => {
   const { service, facality, FacilityserviceId } = useParams();
+  const { isAuthenticated, loginWithRedirect } = useAuth0(); 
+  const [isLoading, setIsLoading] = useState(false);
 
   const services = [
     {
@@ -453,6 +459,19 @@ const ServicePaymentPage = () => {
   const FacilityserviceIdss =
     selectedFacility && selectedFacility.services[FacilityserviceIds];
 
+
+    const handleLogin = async () => {
+      setIsLoading(true); // Set loading state to true
+      try {
+        await loginWithRedirect(); // Redirect to Auth0 login page
+      } catch (error) {
+        console.error("Login error:", error);
+      } finally {
+        setIsLoading(false); // Reset loading state
+      }
+    };
+  
+
   return (
     <Content>
       <Flex
@@ -554,9 +573,20 @@ const ServicePaymentPage = () => {
             boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
           }}
         >
-          <span style={{ fontSize: "2rem", fontWeight: "bold", color: "#333" }}>
-            b
-          </span>
+          {!isAuthenticated ? (
+            <div>
+              <Lottie style={{ width: "35vw" }} animationData={hello} loop={true} />
+              <h3 >Please log in to continue.</h3>
+              <Button type="primary" onClick={handleLogin} style={{backgroundColor: "#fca503", width: "10vw"}} loading={isLoading}>
+                Log In
+              </Button>
+            </div>
+          ) : (
+            <Button type="primary"  >
+              Proceed to Payment
+            </Button>
+          )}
+       
         </Flex>
       </Flex>
     </Content>
