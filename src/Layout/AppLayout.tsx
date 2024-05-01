@@ -160,7 +160,7 @@ function AppLayout() {
                 />
               </Link>
               <Link
-                to="https://www.linkedin.com/in/kwikserve-73456294/recent-activity/all/"
+                to="https://www.linkedin.com/in/kwikserve-173456294/recent-activity/all/"
               >
                 <LinkedinFilled
                   style={{
