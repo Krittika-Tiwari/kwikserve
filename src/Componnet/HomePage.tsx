@@ -636,6 +636,39 @@ function HomePage() {
             }}
             src="https://img.freepik.com/free-photo/service-maintenance-worker-repairing_23-2149176724.jpg?size=626&ext=jpg&ga=GA1.1.553209589.1714176000&semt=ais"
           />
+          <div
+            style={{
+              position: "absolute",
+              top: "calc(95rem)",
+              left: "50%",
+              transform: "translateX(-50%)",
+              zIndex: 2,
+              padding: "1rem",
+             backgroundColor: "rgb(65 ,70, 64 , 0.8)",
+            }}
+          >
+            <p
+              style={{
+                fontSize: "1.2rem",
+                zIndex: 2,
+                color: "white",
+                textAlign: "center",
+              }}
+            >
+              KWIKSERVE is a unique home services firm that is devoted to
+              changing the way urban families receive care and convenience.
+              Personalised service, dependability, and superior standards are
+              our guiding principles. We enable our knowledgeable staff with
+              technology and training. We stand out for our openness,
+              environmentally responsible actions, and dedication to meeting
+              client needs. Locals are less likely to be unemployed in cities
+              like Bangalore when we hire and train them. In addition to
+              improving your experience, your involvement with KWIKSERVE
+              supports our aim of empowering communities and bringing about
+              positive change.
+            </p>
+          </div>
+
           <Flex
             justify="center"
             style={{
