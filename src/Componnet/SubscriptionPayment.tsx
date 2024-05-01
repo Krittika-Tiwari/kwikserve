@@ -130,6 +130,7 @@ const SubscriptionPayment = () => {
                 >
                   {subscription.type}
                 </h3>
+                <h3>3 Months Plans</h3>
 
                 <ul style={{ listStyle: "none", paddingInlineStart: "0", }}>
                   {subscription.services.map((service: any, index) => (

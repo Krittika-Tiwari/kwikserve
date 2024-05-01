@@ -644,7 +644,7 @@ function HomePage() {
               transform: "translateX(-50%)",
               zIndex: 2,
               padding: "1rem",
-             backgroundColor: "rgb(65 ,70, 64 , 0.8)",
+              backgroundColor: "rgb(65 ,70, 64 , 0.8)",
             }}
           >
             <p
@@ -700,7 +700,7 @@ function HomePage() {
           <Flex
             style={{
               backgroundColor: "#414640",
-              height: "110vh",
+              height: "120vh",
             }}
           >
             r
@@ -764,6 +764,7 @@ function HomePage() {
                   }}
                 >
                   <Flex vertical style={{ paddingInline: "1rem" }}>
+                    <h3>3 Months Plans</h3>
                     <p>
                       <Flex gap={5} align="center">
                         <h3>PRICE : </h3> ₹{subscription.price} (

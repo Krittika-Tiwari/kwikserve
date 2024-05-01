@@ -121,6 +121,7 @@ const Subscription = () => {
               
             >
               <Flex vertical style={{ paddingInline: "1rem" }}>
+              <h3>3 Months Plans</h3>
                 <p>
                   <Flex gap={5} align="center">
                     <h3>PRICE : </h3> ₹{subscription.price} (
