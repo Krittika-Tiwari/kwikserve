@@ -1,4 +1,4 @@
-import { Card, Col, Flex, Row,Typography } from "antd";
+import { Card, Col, Flex, Row, Typography } from "antd";
 import { useState } from "react";
 import ServiceModal from "./ServicesModel";
 const { Meta } = Card;
@@ -427,38 +427,39 @@ const AllServices = () => {
         // Add other pest control services here
       ],
     },
-    {
-      key: 6,
-      name: "PreNatal Yoga",
-      imageUrl:
-        "https://static.wixstatic.com/media/e1f7f0_99d7a7988fa2423fa527e81bff8d7c74~mv2.jpg/v1/fill/w_2500,h_1666,al_c/e1f7f0_99d7a7988fa2423fa527e81bff8d7c74~mv2.jpg",
-      description:
-        "Experience the benefits of yoga during pregnancy with our PreNatal Yoga classes. Designed to promote physical and emotional well-being during pregnancy and prepare expectant mothers for childbirth, our classes offer gentle exercises, breathing techniques, and relaxation practices tailored to the needs of pregnant women.",
-      facilities: [
-        {
-          name: "Online Sessions",
-          services: [
-            { name: "15 sessions (1 month)", price: 4499 },
-            { name: "45 sessions (3 months)", price: 13199 },
-            { name: "135 sessions (9 months)", price: 38499 },
-          ],
-        },
-        {
-          name: "At Home (Personal Training)",
-          services: [
-            { name: "15 sessions (1 month)", price: 6999 },
-            { name: "45 sessions (3 months)", price: 20699 },
-            { name: "135 sessions (9 months)", price: 60999 },
-          ],
-        },
-      ],
-    },
+    // {
+    //   key: 6,
+    //   name: "PreNatal Yoga",
+    //   imageUrl:
+    //     "https://static.wixstatic.com/media/e1f7f0_99d7a7988fa2423fa527e81bff8d7c74~mv2.jpg/v1/fill/w_2500,h_1666,al_c/e1f7f0_99d7a7988fa2423fa527e81bff8d7c74~mv2.jpg",
+    //   description:
+    //     "Experience the benefits of yoga during pregnancy with our PreNatal Yoga classes. Designed to promote physical and emotional well-being during pregnancy and prepare expectant mothers for childbirth, our classes offer gentle exercises, breathing techniques, and relaxation practices tailored to the needs of pregnant women.",
+    //   facilities: [
+    //     {
+    //       name: "Online Sessions",
+    //       services: [
+    //         { name: "15 sessions (1 month)", price: 4499 },
+    //         { name: "45 sessions (3 months)", price: 13199 },
+    //         { name: "135 sessions (9 months)", price: 38499 },
+    //       ],
+    //     },
+    //     {
+    //       name: "At Home (Personal Training)",
+    //       services: [
+    //         { name: "15 sessions (1 month)", price: 6999 },
+    //         { name: "45 sessions (3 months)", price: 20699 },
+    //         { name: "135 sessions (9 months)", price: 60999 },
+    //       ],
+    //     },
+    //   ],
+    // },
   ];
 
   return (
     <Row
       style={{ marginTop: "3rem", marginBottom: "8rem", marginInline: "12rem" }}
       gutter={[16, 16]}
+      justify={services.length <= 2 ? "center" : "start"} 
     >
       <Col span={24}>
         <Flex
@@ -470,17 +471,31 @@ const AllServices = () => {
         >
           <Title
             level={1}
-            style={{ color: "rgb(65, 70, 64)", fontWeight: "bold", textDecoration: "underline", textDecorationColor: "#fca503",fontSize: "3.5rem" }}
+            style={{
+              color: "rgb(65, 70, 64)",
+              fontWeight: "bold",
+              textDecoration: "underline",
+              textDecorationColor: "#fca503",
+              fontSize: "3.5rem",
+            }}
           >
-           Our Services
+            Our Services
           </Title>
           <Paragraph style={{ color: "rgb(65, 70, 64)", fontSize: "1.2rem" }}>
-          Explore a diverse range of tailored solutions, from grooming and wellness to home maintenance and beyond
+            Explore a diverse range of tailored solutions, from grooming and
+            wellness to home maintenance and beyond
           </Paragraph>
         </Flex>
       </Col>
       {services.map((service, index) => (
-        <Col key={index} xs={24} sm={12} md={8} lg={8} xl={8}>
+        <Col
+          key={index}
+          xs={24}
+          sm={12}
+          md={services.length === 5 && index >= 3 ? 12 : 8}
+          lg={services.length === 5 && index >= 3 ? 12 : 8}
+          xl={services.length === 5 && index >= 3 ? 8 : 8}
+        >
           <Card
             onClick={() => openModal(service)}
             style={{
@@ -492,15 +507,14 @@ const AllServices = () => {
               borderRadius: "1rem",
               boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
               padding: "1rem",
-              backgroundColor: "#ebedea"
-              
+              backgroundColor: "#ebedea",
             }}
             hoverable
             cover={
               <img
                 alt={service.name}
                 src={service.imageUrl}
-                style={{ height: "15rem", width: "100%", }}
+                style={{ height: "15rem", width: "100%" }}
               />
             }
           >

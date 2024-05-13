@@ -431,32 +431,32 @@ function HomePage() {
         // Add other pest control services here
       ],
     },
-    {
-      key: 6,
-      name: "PreNatal Yoga",
-      imageUrl:
-        "https://static.wixstatic.com/media/e1f7f0_99d7a7988fa2423fa527e81bff8d7c74~mv2.jpg/v1/fill/w_2500,h_1666,al_c/e1f7f0_99d7a7988fa2423fa527e81bff8d7c74~mv2.jpg",
-      description:
-        "Experience the benefits of yoga during pregnancy with our PreNatal Yoga classes. Designed to promote physical and emotional well-being during pregnancy and prepare expectant mothers for childbirth, our classes offer gentle exercises, breathing techniques, and relaxation practices tailored to the needs of pregnant women.",
-      facilities: [
-        {
-          name: "Online Sessions",
-          services: [
-            { name: "15 sessions (1 month)", price: 4499 },
-            { name: "45 sessions (3 months)", price: 13199 },
-            { name: "135 sessions (9 months)", price: 38499 },
-          ],
-        },
-        {
-          name: "At Home (Personal Training)",
-          services: [
-            { name: "15 sessions (1 month)", price: 6999 },
-            { name: "45 sessions (3 months)", price: 20699 },
-            { name: "135 sessions (9 months)", price: 60999 },
-          ],
-        },
-      ],
-    },
+    // {
+    //   key: 6,
+    //   name: "PreNatal Yoga",
+    //   imageUrl:
+    //     "https://static.wixstatic.com/media/e1f7f0_99d7a7988fa2423fa527e81bff8d7c74~mv2.jpg/v1/fill/w_2500,h_1666,al_c/e1f7f0_99d7a7988fa2423fa527e81bff8d7c74~mv2.jpg",
+    //   description:
+    //     "Experience the benefits of yoga during pregnancy with our PreNatal Yoga classes. Designed to promote physical and emotional well-being during pregnancy and prepare expectant mothers for childbirth, our classes offer gentle exercises, breathing techniques, and relaxation practices tailored to the needs of pregnant women.",
+    //   facilities: [
+    //     {
+    //       name: "Online Sessions",
+    //       services: [
+    //         { name: "15 sessions (1 month)", price: 4499 },
+    //         { name: "45 sessions (3 months)", price: 13199 },
+    //         { name: "135 sessions (9 months)", price: 38499 },
+    //       ],
+    //     },
+    //     {
+    //       name: "At Home (Personal Training)",
+    //       services: [
+    //         { name: "15 sessions (1 month)", price: 6999 },
+    //         { name: "45 sessions (3 months)", price: 20699 },
+    //         { name: "135 sessions (9 months)", price: 60999 },
+    //       ],
+    //     },
+    //   ],
+    // },
   ];
 
   const subscriptionData = [

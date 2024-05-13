@@ -106,7 +106,7 @@ function AppLayout() {
                   <p>HVAC Services</p>
                   <p>House Cleaning</p>
                   <p>Pest Control </p>
-                  <p>PreNatal Yoga </p>
+                  {/* <p>PreNatal Yoga </p> */}
                 </div>
               </Col>
               <Col xs={24} sm={24} md={8} lg={6}>
