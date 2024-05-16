@@ -16,7 +16,7 @@ function HomePage() {
   const [ref1, inView1] = useInView();
   const [ref2, inView2] = useInView();
   const [ref3, inView3] = useInView();
-  // const [ref4, inView4] = useInView();
+  const [ref4, inView4] = useInView();
   const [ref5, inView5] = useInView();
 
   // Function to handle opening the modal
@@ -549,9 +549,9 @@ function HomePage() {
         <div ref={ref1}>
           {/* Animated div */}
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={inView1 ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
-            transition={{ duration: 2 }}
+            initial={{ opacity: 0.5, y: -10 }}
+            animate={inView1 ? { opacity: 1, y: 0 } : { opacity: 0.5, y: -10 }}
+            transition={{ duration: 2}}
           >
             <Flex justify="center">
               <Image
@@ -571,7 +571,7 @@ function HomePage() {
           <motion.div
             initial={{ opacity: 0.5 }}
             animate={inView2 ? { opacity: 1 } : { opacity: 0.5 }}
-            transition={{ duration: 5, delay: 0.2 }}
+            transition={{ duration: 1, delay: 0.2 }}
           >
             <Flex
               vertical
@@ -618,29 +618,49 @@ function HomePage() {
               </Flex>
               <Flex>
                 {displayedServices.map((service, index) => (
-                  <Card
-                    hoverable
-                    onClick={() => openModal(service)}
-                    key={index}
-                    style={{
-                      width: "20vw",
-                      marginLeft: "1rem",
-                      marginRight: "1rem",
-                      borderRadius: 0,
-                    }}
-                    cover={
-                      <img
-                        alt={service.name}
-                        src={service.imageUrl}
-                        style={{ width: "100", height: "10rem" }}
-                      />
-                    }
-                  >
-                    <Card.Meta
-                      title={service.name}
-                      description={service.description}
-                    />
-                  </Card>
+                  <Flex>
+                    <div ref={ref4}>
+                      <motion.div
+                        key={index}
+                        style={{ height: "100%" }}
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={
+                          inView4 ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }
+                        }
+                        transition={{
+                          type: "spring",
+                          stiffness: 100,
+                          damping: 105,
+                          delay: index * 0.5,
+                        }} // Delay each card by 0.2 seconds
+                      >
+                        <Card
+                          hoverable
+                          onClick={() => openModal(service)}
+                          key={index}
+                          style={{
+                            height: "100%",
+                            width: "20vw",
+                            marginLeft: "1rem",
+                            marginRight: "1rem",
+                            borderRadius: 0,
+                          }}
+                          cover={
+                            <img
+                              alt={service.name}
+                              src={service.imageUrl}
+                              style={{ width: "100", height: "10rem" }}
+                            />
+                          }
+                        >
+                          <Card.Meta
+                            title={service.name}
+                            description={service.description}
+                          />
+                        </Card>
+                      </motion.div>
+                    </div>
+                  </Flex>
                 ))}
               </Flex>
             </Flex>
@@ -651,7 +671,7 @@ function HomePage() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={inView3 ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 5 }}
+            transition={{ duration: 3 }}
           >
             <Flex vertical style={{ marginTop: "33rem" }}>
               <Image
@@ -846,7 +866,7 @@ function HomePage() {
           <motion.div
             initial={{ opacity: 0.5 }}
             animate={inView5 ? { opacity: 1 } : { opacity: 0.5 }}
-            transition={{ duration: 3,  }}
+            transition={{ duration: 1 }}
           >
             <Flex style={{ backgroundColor: "#ebedea", textAlign: "left" }}>
               <Flex style={{ width: "60%" }}>

@@ -1,6 +1,8 @@
 import { Card, Col, Flex, Row, Typography } from "antd";
 import { useState } from "react";
 import ServiceModal from "./ServicesModel";
+import { motion } from "framer-motion";
+
 const { Meta } = Card;
 
 const { Title, Paragraph } = Typography;
@@ -459,7 +461,7 @@ const AllServices = () => {
     <Row
       style={{ marginTop: "3rem", marginBottom: "8rem", marginInline: "12rem" }}
       gutter={[16, 16]}
-      justify={services.length <= 2 ? "center" : "start"} 
+      justify={services.length <= 2 ? "center" : "start"}
     >
       <Col span={24}>
         <Flex
@@ -487,6 +489,7 @@ const AllServices = () => {
           </Paragraph>
         </Flex>
       </Col>
+
       {services.map((service, index) => (
         <Col
           key={index}
@@ -496,30 +499,42 @@ const AllServices = () => {
           lg={services.length === 5 && index >= 3 ? 12 : 8}
           xl={services.length === 5 && index >= 3 ? 8 : 8}
         >
-          <Card
-            onClick={() => openModal(service)}
-            style={{
-              height: "100%",
-              display: "flex",
-              flexDirection: "column",
-              maxWidth: "100%",
-              borderColor: "#acaeb0",
-              borderRadius: "1rem",
-              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-              padding: "1rem",
-              backgroundColor: "#ebedea",
-            }}
-            hoverable
-            cover={
-              <img
-                alt={service.name}
-                src={service.imageUrl}
-                style={{ height: "15rem", width: "100%" }}
-              />
-            }
+          <motion.div
+          style={{height:"100%"}}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              damping: 105,
+              delay: index * 0.5,
+            }} // Delay each card by 0.2 seconds
           >
-            <Meta title={service.name} description={service.description} />
-          </Card>
+            <Card
+              onClick={() => openModal(service)}
+              style={{
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                maxWidth: "100%",
+                borderColor: "#acaeb0",
+                borderRadius: "1rem",
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                padding: "1rem",
+                backgroundColor: "#ebedea",
+              }}
+              hoverable
+              cover={
+                <img
+                  alt={service.name}
+                  src={service.imageUrl}
+                  style={{ height: "15rem", width: "100%" }}
+                />
+              }
+            >
+              <Meta title={service.name} description={service.description} />
+            </Card>
+          </motion.div>
         </Col>
       ))}
       <ServiceModal

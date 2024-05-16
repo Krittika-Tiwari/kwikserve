@@ -2,7 +2,7 @@ import { CheckCircleOutlined } from "@ant-design/icons";
 import { Card, Col, Flex, Row, Typography } from "antd";
 import "./Subscription.css";
 import { useNavigate } from "react-router-dom";
-
+import { motion } from "framer-motion";
 
 const { Title, Paragraph } = Typography;
 
@@ -93,7 +93,12 @@ const Subscription = () => {
         >
           <Title
             level={1}
-            style={{ color: "rgb(65, 70, 64)", fontWeight: "bold", textDecoration: "underline", textDecorationColor: "#fca503" }}
+            style={{
+              color: "rgb(65, 70, 64)",
+              fontWeight: "bold",
+              textDecoration: "underline",
+              textDecorationColor: "#fca503",
+            }}
           >
             Subscription Plans
           </Title>
@@ -104,6 +109,17 @@ const Subscription = () => {
       </Col>
       {subscriptionData.map((subscription, index) => (
         <Col key={index} xs={24} sm={12} md={8} lg={8} xl={8}>
+           <motion.div
+           style={{height:"100%"}}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              damping: 105,
+              delay: index * 0.5,
+            }} // Delay each card by 0.2 seconds
+          >
           <Flex
             vertical
             style={{
@@ -111,6 +127,7 @@ const Subscription = () => {
               height: "100%",
             }}
           >
+           
             <Card
               onClick={() => handelSubscriptionPayment(index)}
               className="subscription-card"
@@ -118,10 +135,9 @@ const Subscription = () => {
               key={index}
               title={subscription.type}
               bordered
-              
             >
               <Flex vertical style={{ paddingInline: "1rem" }}>
-              <h3>3 Months Plans</h3>
+                <h3>3 Months Plans</h3>
                 <p>
                   <Flex gap={5} align="center">
                     <h3>PRICE : </h3> ₹{subscription.price} (
@@ -158,7 +174,9 @@ const Subscription = () => {
                     Buy Now
                   </Button> */}
             </Card>
+            
           </Flex>
+          </motion.div>
         </Col>
       ))}
     </Row>

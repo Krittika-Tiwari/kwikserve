@@ -1,14 +1,21 @@
 import { Flex, Image, Layout, Typography } from "antd";
-import { CheckCircleOutlined } from "@ant-design/icons";
+// import { CheckCircleOutlined } from "@ant-design/icons";
+import { motion } from "framer-motion";
 
 import React from "react";
 
 const { Content } = Layout;
-const { Title, Text } = Typography;
+const { Title, } = Typography;
 function AboutUs() {
   return (
     <Layout>
-      <Content>
+      <Content style={{paddingBottom:"10rem"}}>
+        <motion.div
+          initial={{ opacity: 0, x: 250 }} 
+          animate={{ opacity: 1, x: 0 }} 
+          exit={{ opacity: 0, x: 250 }} 
+          transition={{ duration: 1.5 }}
+          >
         <Flex vertical style={{ marginInline: "5rem", marginTop: "5rem" }}>
           <Title
             level={3}
@@ -51,7 +58,8 @@ function AboutUs() {
             </Flex>
           </Flex>
         </Flex>
-        <Flex
+        </motion.div>
+        {/* <Flex
           vertical
           style={{
             marginInline: "5rem",
@@ -137,7 +145,7 @@ function AboutUs() {
               </Text>
             </Flex>
           </Flex>
-        </Flex>
+        </Flex> */}
       </Content>
     </Layout>
   );
