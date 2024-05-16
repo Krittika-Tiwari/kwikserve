@@ -1,16 +1,37 @@
-import { Button, Card, Flex, Image, Layout } from "antd";
+import {
+  Button,
+  Card,
+  DatePicker,
+  Flex,
+  Image,
+  Input,
+  Layout,
+  TimePicker,
+} from "antd";
 import { useParams } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useState } from "react";
 import Lottie from "lottie-react";
-import  cat from "../Assets/cat.json";
+import cat from "../Assets/cat.json";
 
 const { Content } = Layout;
 
 const ServicePaymentPage = () => {
   const { service, facality, FacilityserviceId } = useParams();
-  const { isAuthenticated, loginWithRedirect } = useAuth0(); 
+  const { isAuthenticated, loginWithRedirect } = useAuth0();
   const [isLoading, setIsLoading] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [address, setAddress] = useState("");
+  const [houseNumber, setHouseNumber] = useState("");
+  const [landmark, setLandmark] = useState("");
+  const [pinCode, setPinCode] = useState("");
+  const [state, setState] = useState("");
+  const [city, setCity] = useState("");
+  const [contactNumber, setContactNumber] = useState("");
+  const [timing, setTiming] = useState(null);
+  const [date, setDate] = useState(null);
+  const [isServiceBooked, setIsServiceBooked] = useState(false);
 
   const services = [
     {
@@ -451,6 +472,26 @@ const ServicePaymentPage = () => {
     (servicess) => String(servicess.key) === service
   );
 
+  const handleSubmit = () => {
+    // Gather all the form data
+    const formData = {
+      firstName,
+      lastName,
+      houseNumber,
+      pinCode,
+      landmark,
+      address,
+      state,
+      city,
+      contactNumber,
+      timing,
+      date,
+    };
+
+    console.log("Form data:", formData);
+    setIsServiceBooked(true);
+  };
+
   const selectedFacilityIndex = parseInt(facality || "0", 10);
   const FacilityserviceIds = parseInt(FacilityserviceId || "0", 10);
 
@@ -459,18 +500,16 @@ const ServicePaymentPage = () => {
   const FacilityserviceIdss =
     selectedFacility && selectedFacility.services[FacilityserviceIds];
 
-
-    const handleLogin = async () => {
-      setIsLoading(true); 
-      try {
-        await loginWithRedirect(); 
-      } catch (error) {
-        console.error("Login error:", error);
-      } finally {
-        setIsLoading(false); // Reset loading state
-      }
-    };
-  
+  const handleLogin = async () => {
+    setIsLoading(true);
+    try {
+      await loginWithRedirect();
+    } catch (error) {
+      console.error("Login error:", error);
+    } finally {
+      setIsLoading(false); // Reset loading state
+    }
+  };
 
   return (
     <Content>
@@ -490,7 +529,6 @@ const ServicePaymentPage = () => {
           {selectedService && (
             <Flex
               vertical
-             
               align="center"
               justify="center"
               style={{
@@ -510,7 +548,7 @@ const ServicePaymentPage = () => {
                 preview={false}
                 src={selectedService.imageUrl}
               />
-              <Flex gap={5}  vertical align="center" style={{width:"95%"}}>
+              <Flex gap={5} vertical align="center" style={{ width: "95%" }}>
                 <h3
                   style={{
                     marginBottom: "0.5rem",
@@ -528,7 +566,7 @@ const ServicePaymentPage = () => {
                   <Card
                     title={selectedFacility.name}
                     style={{
-                      width:"100%",
+                      width: "100%",
                       marginBottom: "1rem",
                       borderRadius: "0.5rem",
                       boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
@@ -561,11 +599,9 @@ const ServicePaymentPage = () => {
           )}
         </Flex>
 
-       
         <Flex
-        // align="center"
-        justify="center"
-      
+          // align="center"
+          justify="center"
           style={{
             width: "50%",
             marginLeft: "1rem",
@@ -577,18 +613,213 @@ const ServicePaymentPage = () => {
         >
           {!isAuthenticated ? (
             <div>
-              <Lottie style={{ width: "35vw",height:"30vw" }} animationData={cat} loop={true} />
-              <h3 >Please log in to continue.</h3>
-              <Button type="primary" onClick={handleLogin} style={{backgroundColor: "#fca503", width: "10vw"}} loading={isLoading}>
+              <Lottie
+                style={{ width: "35vw", height: "30vw" }}
+                animationData={cat}
+                loop={true}
+              />
+              <h3>Please log in to continue.</h3>
+              <Button
+                type="primary"
+                onClick={handleLogin}
+                style={{ backgroundColor: "#fca503", width: "10vw" }}
+                loading={isLoading}
+              >
                 Log In
               </Button>
             </div>
           ) : (
-            <Button type="primary"  >
-              Proceed to Payment
-            </Button>
+            <div>
+              {!isServiceBooked ? (
+                <div style={{ margin: "2rem" }}>
+                  <Flex gap={10} style={{ marginBottom: "1rem" }}>
+                    <Input
+                      placeholder="First Name"
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                      style={{
+                        width: "50%",
+                        borderRadius: "0.5rem",
+                        backgroundColor: "#f2f2f2",
+                        padding: "0.5rem",
+                        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                      }}
+                    />
+                    <Input
+                      placeholder="Last Name"
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
+                      style={{
+                        width: "50%",
+                        borderRadius: "0.5rem",
+                        backgroundColor: "#f2f2f2",
+                        padding: "0.5rem",
+                        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                      }}
+                    />
+                  </Flex>
+
+                  <Input
+                    placeholder="House Number"
+                    value={houseNumber}
+                    onChange={(e) => setHouseNumber(e.target.value)}
+                    style={{
+                      marginBottom: "1rem",
+                      width: "100%",
+                      borderRadius: "0.5rem",
+                      backgroundColor: "#f2f2f2",
+                      padding: "0.5rem",
+                      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                      color: "#555",
+                    }}
+                  />
+
+                  <Input
+                    placeholder="Pin Code"
+                    value={pinCode}
+                    onChange={(e) => setPinCode(e.target.value)}
+                    style={{
+                      marginBottom: "1rem",
+                      width: "100%",
+                      borderRadius: "0.5rem",
+                      backgroundColor: "#f2f2f2",
+                      padding: "0.5rem",
+                      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                      color: "#555",
+                    }}
+                  />
+
+                  <Input
+                    placeholder="Landmark"
+                    value={landmark}
+                    onChange={(e) => setLandmark(e.target.value)}
+                    style={{
+                      marginBottom: "1rem",
+                      width: "100%",
+                      borderRadius: "0.5rem",
+                      backgroundColor: "#f2f2f2",
+                      padding: "0.5rem",
+                      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                      color: "#555",
+                    }}
+                  />
+
+                  <Input
+                    placeholder="Address"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    style={{
+                      marginBottom: "1rem",
+                      width: "100%",
+                      borderRadius: "0.5rem",
+                      backgroundColor: "#f2f2f2",
+                      padding: "0.5rem",
+                      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                      color: "#555",
+                    }}
+                  />
+
+                  <Flex gap={10} style={{ marginBottom: "1rem" }}>
+                    <Input
+                      placeholder="State"
+                      value={state}
+                      onChange={(e) => setState(e.target.value)}
+                      style={{
+                        width: "50%",
+                        borderRadius: "0.5rem",
+                        backgroundColor: "#f2f2f2",
+                        padding: "0.5rem",
+                        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                        color: "#555",
+                      }}
+                    />
+                    <Input
+                      placeholder="City"
+                      value={city}
+                      onChange={(e) => setCity(e.target.value)}
+                      style={{
+                        width: "50%",
+                        borderRadius: "0.5rem",
+                        backgroundColor: "#f2f2f2",
+                        padding: "0.5rem",
+                        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                        color: "#555",
+                      }}
+                    />
+                  </Flex>
+
+                  <Flex gap={10} style={{ marginBottom: "1rem" }}>
+                    <DatePicker
+                      placeholder="Date"
+                      value={date}
+                      onChange={(date) => setDate(date)}
+                      style={{
+                        width: "50%",
+                        borderRadius: "0.5rem",
+                        backgroundColor: "#f2f2f2",
+                        padding: "0.5rem",
+                        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                        color: "#555",
+                      }}
+                    />
+                    <TimePicker
+                      placeholder="Time"
+                      value={timing}
+                      onChange={(time: any) => setTiming(time)}
+                      style={{
+                        width: "50%",
+                        borderRadius: "0.5rem",
+                        backgroundColor: "#f2f2f2",
+                        padding: "0.5rem",
+                        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                        color: "#555",
+                      }}
+                    />
+                  </Flex>
+
+                  <Input
+                    placeholder="Contact Number"
+                    value={contactNumber}
+                    onChange={(e) => setContactNumber(e.target.value)}
+                    style={{
+                      marginBottom: "1rem",
+                      width: "100%",
+                      borderRadius: "0.5rem",
+                      backgroundColor: "#f2f2f2",
+                      padding: "0.5rem",
+                      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                      color: "#555",
+                    }}
+                  />
+
+                  <Button
+                    onClick={handleSubmit} // Adjust the onClick handler
+                    style={{
+                      marginTop: "2rem",
+                      textAlign: "center",
+                      height: "7vh",
+                      width: "100%",
+                      backgroundColor: "#fca503",
+                      color: "#fff",
+                      fontSize: "1.5rem",
+                      padding: "0.5rem 1rem",
+                      borderRadius: "0.5rem",
+                      border: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    Submit
+                  </Button>
+                </div>
+              ) : (
+                <div style={{ marginTop: "1rem", textAlign: "center" }}>
+                  <h3>Your service is booked!</h3>
+                  {/* <p>Date: {date }</p>
+                  <p>Time: {timing }</p> */}
+                </div>
+              )}
+            </div>
           )}
-       
         </Flex>
       </Flex>
     </Content>

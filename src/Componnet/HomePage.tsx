@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ServiceModal from "./ServicesModel";
 import { CheckCircleOutlined } from "@ant-design/icons";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const { Content } = Layout;
 const { Text } = Typography;
@@ -11,6 +13,11 @@ function HomePage() {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedService, setSelectedService] = useState<any>(null);
   const navigate = useNavigate();
+  const [ref1, inView1] = useInView();
+  const [ref2, inView2] = useInView();
+  const [ref3, inView3] = useInView();
+  const [ref4, inView4] = useInView();
+  const [ref5, inView5] = useInView();
 
   // Function to handle opening the modal
   const openModal = (service: any) => {
@@ -539,257 +546,285 @@ function HomePage() {
   return (
     <Layout>
       <Content style={{ backgroundColor: "white" }}>
-        <Flex justify="center">
-          <Image
-            style={{ width: "100vw", height: "90vh" }}
-            preview={false}
-            alt="home services logo"
-            src={
-              "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aG9tZSUyMGludGVyaW9yfGVufDB8fDB8fHww"
-            }
-          />
-        </Flex>
-        <Flex
-          vertical
-          justify="center"
-          style={{
-            marginTop: "4rem",
-            marginBottom: "5rem",
-            marginInline: "5rem",
-            position: "absolute",
-            top: "100%",
-            left: "45%",
-            transform: "translate(-50%, -50%)",
-            zIndex: 1,
-            textAlign: "center",
-            backgroundColor: "rgb(65 70 64 )",
-            padding: "3rem",
-          }}
-          gap={10}
-        >
-          <Flex align="center" justify="space-between">
-            <Text
-              style={{
-                fontSize: "3rem",
-                fontWeight: "bold",
-                textDecoration: "underline",
-                textDecorationColor: "#fca503",
-                textAlign: "left",
-                color: "white",
-              }}
-            >
-              OUR SERVICES
-            </Text>
-            <Button
-              style={{
-                borderRadius: 0,
-                borderColor: "#fca503",
-                color: "#fca503",
-                fontWeight: "bold",
-              }}
-              onClick={handleSeeAllServices}
-            >
-              SEE All SERVICES
-            </Button>
-          </Flex>
-          <Flex>
-            {displayedServices.map((service, index) => (
-              <Card
-                hoverable
-                onClick={() => openModal(service)}
-                key={index}
-                style={{
-                  width: "20vw",
-                  marginLeft: "1rem",
-                  marginRight: "1rem",
-                  borderRadius: 0,
-                }}
-                cover={
-                  <img
-                    alt={service.name}
-                    src={service.imageUrl}
-                    style={{ width: "100", height: "10rem" }}
-                  />
+        <div ref={ref1}>
+          {/* Animated div */}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={inView1 ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
+            transition={{ duration: 2 }}
+          >
+            <Flex justify="center">
+              <Image
+                style={{ width: "100vw", height: "90vh" }}
+                preview={false}
+                alt="home services logo"
+                src={
+                  "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aG9tZSUyMGludGVyaW9yfGVufDB8fDB8fHww"
                 }
-              >
-                <Card.Meta
-                  title={service.name}
-                  description={service.description}
-                />
-              </Card>
-            ))}
-          </Flex>
-        </Flex>
-
-        <Flex vertical style={{ marginTop: "33rem" }}>
-          <Image
-            preview={false}
-            style={{
-              position: "absolute",
-              top: "calc(10rem)", // Adjust the position as needed
-              left: "50%",
-              transform: "translateX(-50%)",
-              zIndex: 1,
-              padding: "2rem",
-              height: "80vh",
-              width: "70vw",
-            }}
-            src="https://img.freepik.com/free-photo/service-maintenance-worker-repairing_23-2149176724.jpg?size=626&ext=jpg&ga=GA1.1.553209589.1714176000&semt=ais"
-          />
-          <div
-            style={{
-              position: "absolute",
-              top: "calc(95rem)",
-              left: "50%",
-              transform: "translateX(-50%)",
-              zIndex: 2,
-              padding: "1rem",
-              backgroundColor: "rgb(65 ,70, 64 , 0.8)",
-            }}
-          >
-            <p
-              style={{
-                fontSize: "1.2rem",
-                zIndex: 2,
-                color: "white",
-                textAlign: "center",
-              }}
-            >
-              KWIKSERVE is a unique home services firm that is devoted to
-              changing the way urban families receive care and convenience.
-              Personalised service, dependability, and superior standards are
-              our guiding principles. We enable our knowledgeable staff with
-              technology and training. We stand out for our openness,
-              environmentally responsible actions, and dedication to meeting
-              client needs. Locals are less likely to be unemployed in cities
-              like Bangalore when we hire and train them. In addition to
-              improving your experience, your involvement with KWIKSERVE
-              supports our aim of empowering communities and bringing about
-              positive change.
-            </p>
-          </div>
-
-          <Flex
-            justify="center"
-            style={{
-              backgroundColor: "#ebedea",
-
-              height: "90vh",
-            }}
-          >
-            <Flex vertical>
-              <h2
-                style={{
-                  fontSize: "3rem",
-                  marginInlineStart: 0,
-                  marginInlineEnd: 0,
-                  marginBlockEnd: 0,
-                  marginBlockStart: 0,
-                  marginTop: "2rem",
-                }}
-              >
-                WHY CHOOSE US
-              </h2>
-              <Text style={{ fontSize: "1rem" }}>
-                The Boutique For Your Home & Business. Your One Stop Shop Where
-                You Come First.
-              </Text>
+              />
             </Flex>
-          </Flex>
+          </motion.div>
+        </div>
 
-          <Flex
-            style={{
-              backgroundColor: "#414640",
-              height: "120vh",
-            }}
-          >
-            r
-          </Flex>
-          <Flex
-            vertical
-            justify="center"
-            style={{
-              position: "absolute",
-              top: "calc(125rem)",
-              left: "50%",
-              transform: "translateX(-50%)",
-              zIndex: 1,
-              padding: "2rem",
-              height: "70vh",
-              width: "70vw",
-            }}
-            gap={10}
+        <div ref={ref2}>
+          {/* Another animated div */}
+          <motion.div
+            initial={{ opacity: 0.5 }}
+            animate={inView2 ? { opacity: 1 } : { opacity: 0.5 }}
+            transition={{ duration: 5, delay: 0.2 }}
           >
             <Flex
-              justify="space-between"
-              align="center"
-              style={{ margin: "1rem" }}
+              vertical
+              justify="center"
+              style={{
+                marginTop: "4rem",
+                marginBottom: "5rem",
+                marginInline: "5rem",
+                position: "absolute",
+                top: "100%",
+                left: "45%",
+                transform: "translate(-50%, -50%)",
+                zIndex: 1,
+                textAlign: "center",
+                backgroundColor: "rgb(65 70 64 )",
+                padding: "3rem",
+              }}
+              gap={10}
             >
-              <Text
-                style={{
-                  fontSize: "3rem",
-                  textDecoration: "underline",
-                  textDecorationColor: "#fca503",
-                  textAlign: "left",
-                  color: "white",
-                }}
-              >
-                SUBSCRIPTION
-              </Text>
-              <Button
-                style={{
-                  borderRadius: 0,
-                  borderColor: "#fca503",
-                  color: "#fca503",
-                  fontWeight: "bold",
-                }}
-                onClick={handleSeeAllSubscription}
-              >
-                SEE All SUBSCRIPTION
-              </Button>
-            </Flex>
-            <Flex style={{ textAlign: "left" }}>
-              {displayedOffer.map((subscription: any, index) => (
-                <Card
-                  hoverable
-                  key={index}
-                  title={subscription.type}
-                  onClick={() => handelSubscriptionPayment(index)}
+              <Flex align="center" justify="space-between">
+                <Text
                   style={{
-                    width: "30vw",
-                    marginLeft: "0.5rem",
-                    marginRight: "0.5rem",
-                    borderRadius: 0,
-                    height: "100%",
+                    fontSize: "3rem",
+                    fontWeight: "bold",
+                    textDecoration: "underline",
+                    textDecorationColor: "#fca503",
+                    textAlign: "left",
+                    color: "white",
                   }}
                 >
-                  <Flex vertical style={{ paddingInline: "1rem" }}>
-                    <h3>3 Months Plans</h3>
-                    <p>
-                      <Flex gap={5} align="center">
-                        <h3>PRICE : </h3> ₹{subscription.price} (
-                        {subscription.discount} discount)
+                  OUR SERVICES
+                </Text>
+                <Button
+                  style={{
+                    borderRadius: 0,
+                    borderColor: "#fca503",
+                    color: "#fca503",
+                    fontWeight: "bold",
+                  }}
+                  onClick={handleSeeAllServices}
+                >
+                  SEE All SERVICES
+                </Button>
+              </Flex>
+              <Flex>
+                {displayedServices.map((service, index) => (
+                  <Card
+                    hoverable
+                    onClick={() => openModal(service)}
+                    key={index}
+                    style={{
+                      width: "20vw",
+                      marginLeft: "1rem",
+                      marginRight: "1rem",
+                      borderRadius: 0,
+                    }}
+                    cover={
+                      <img
+                        alt={service.name}
+                        src={service.imageUrl}
+                        style={{ width: "100", height: "10rem" }}
+                      />
+                    }
+                  >
+                    <Card.Meta
+                      title={service.name}
+                      description={service.description}
+                    />
+                  </Card>
+                ))}
+              </Flex>
+            </Flex>
+          </motion.div>
+        </div>
+
+        <div ref={ref3}>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={inView3 ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 5 }}
+          >
+            <Flex vertical style={{ marginTop: "33rem" }}>
+              <Image
+                preview={false}
+                style={{
+                  position: "absolute",
+                  top: "calc(10rem)", // Adjust the position as needed
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  zIndex: 1,
+                  padding: "2rem",
+                  height: "80vh",
+                  width: "70vw",
+                }}
+                src="https://img.freepik.com/free-photo/service-maintenance-worker-repairing_23-2149176724.jpg?size=626&ext=jpg&ga=GA1.1.553209589.1714176000&semt=ais"
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  top: "calc(95rem)",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  zIndex: 2,
+                  padding: "1rem",
+                  backgroundColor: "rgb(65 ,70, 64 , 0.8)",
+                }}
+              >
+                <p
+                  style={{
+                    fontSize: "1.2rem",
+                    zIndex: 2,
+                    color: "white",
+                    textAlign: "center",
+                  }}
+                >
+                  KWIKSERVE is a unique home services firm that is devoted to
+                  changing the way urban families receive care and convenience.
+                  Personalised service, dependability, and superior standards
+                  are our guiding principles. We enable our knowledgeable staff
+                  with technology and training. We stand out for our openness,
+                  environmentally responsible actions, and dedication to meeting
+                  client needs. Locals are less likely to be unemployed in
+                  cities like Bangalore when we hire and train them. In addition
+                  to improving your experience, your involvement with KWIKSERVE
+                  supports our aim of empowering communities and bringing about
+                  positive change.
+                </p>
+              </div>
+
+              <Flex
+                justify="center"
+                style={{
+                  backgroundColor: "#ebedea",
+                  height: "90vh",
+                }}
+              >
+                <Flex vertical>
+                  <h2
+                    style={{
+                      fontSize: "3rem",
+                      marginInlineStart: 0,
+                      marginInlineEnd: 0,
+                      marginBlockEnd: 0,
+                      marginBlockStart: 0,
+                      marginTop: "2rem",
+                    }}
+                  >
+                    WHY CHOOSE US
+                  </h2>
+                  <Text style={{ fontSize: "1rem" }}>
+                    The Boutique For Your Home & Business. Your One Stop Shop
+                    Where You Come First.
+                  </Text>
+                </Flex>
+              </Flex>
+
+              <Flex
+                style={{
+                  backgroundColor: "#414640",
+                  height: "120vh",
+                }}
+              >
+                r
+              </Flex>
+              <Flex
+                vertical
+                justify="center"
+                style={{
+                  position: "absolute",
+                  top: "calc(125rem)",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  zIndex: 1,
+                  padding: "2rem",
+                  height: "70vh",
+                  width: "70vw",
+                }}
+                gap={10}
+              >
+                <Flex
+                  justify="space-between"
+                  align="center"
+                  style={{ margin: "1rem" }}
+                >
+                  <Text
+                    style={{
+                      fontSize: "3rem",
+                      textDecoration: "underline",
+                      textDecorationColor: "#fca503",
+                      textAlign: "left",
+                      color: "white",
+                    }}
+                  >
+                    SUBSCRIPTION
+                  </Text>
+                  <Button
+                    style={{
+                      borderRadius: 0,
+                      borderColor: "#fca503",
+                      color: "#fca503",
+                      fontWeight: "bold",
+                    }}
+                    onClick={handleSeeAllSubscription}
+                  >
+                    SEE All SUBSCRIPTION
+                  </Button>
+                </Flex>
+                <Flex style={{ textAlign: "left" }}>
+                  {displayedOffer.map((subscription: any, index) => (
+                    <Card
+                      hoverable
+                      key={index}
+                      title={subscription.type}
+                      onClick={() => handelSubscriptionPayment(index)}
+                      style={{
+                        width: "30vw",
+                        marginLeft: "0.5rem",
+                        marginRight: "0.5rem",
+                        borderRadius: 0,
+                        height: "100%",
+                      }}
+                    >
+                      <Flex vertical style={{ paddingInline: "1rem" }}>
+                        <h3>3 Months Plans</h3>
+                        <p>
+                          <Flex gap={5} align="center">
+                            <h3>PRICE : </h3> ₹{subscription.price} (
+                            {subscription.discount} discount)
+                          </Flex>
+                        </p>
+                        <ul
+                          style={{ listStyle: "none", paddingInlineStart: "0" }}
+                        >
+                          {subscription.services.map(
+                            (service: any, index: any) => (
+                              <li key={index}>
+                                <CheckCircleOutlined
+                                  style={{
+                                    marginRight: "0.6rem",
+                                    fontSize: "1rem",
+                                    color: "#fcbe03",
+                                  }}
+                                />{" "}
+                                {service.name}{" "}
+                                {service.sessionsPerMonth &&
+                                  `(Sessions per month: ${service.sessionsPerMonth})`}{" "}
+                                {service.price && `(Price: ₹${service.price})`}
+                              </li>
+                            )
+                          )}
+                        </ul>
                       </Flex>
-                    </p>
-                    <ul style={{ listStyle: "none", paddingInlineStart: "0" }}>
-                      {subscription.services.map((service: any, index: any) => (
-                        <li key={index}>
-                          <CheckCircleOutlined
-                            style={{
-                              marginRight: "0.6rem",
-                              fontSize: "1rem",
-                              color: "#fcbe03",
-                            }}
-                          />{" "}
-                          {service.name}{" "}
-                          {service.sessionsPerMonth &&
-                            `(Sessions per month: ${service.sessionsPerMonth})`}{" "}
-                          {service.price && `(Price: ₹${service.price})`}
-                        </li>
-                      ))}
-                    </ul>
-                  </Flex>
-                  {/* <Button
+                      {/* <Button
                     style={{
                       marginTop: "auto",
                       borderRadius: 0,
@@ -800,75 +835,84 @@ function HomePage() {
                   >
                     Buy Now
                   </Button> */}
-                </Card>
-              ))}
+                    </Card>
+                  ))}
+                </Flex>
+              </Flex>
             </Flex>
-          </Flex>
-        </Flex>
+          </motion.div>
+        </div>
+        <div ref={ref5}>
+          <motion.div
+            initial={{ opacity: 0.5 }}
+            animate={inView5 ? { opacity: 1 } : { opacity: 0.5 }}
+            transition={{ duration: 3,  }}
+          >
+            <Flex style={{ backgroundColor: "#ebedea", textAlign: "left" }}>
+              <Flex style={{ width: "60%" }}>
+                <Image
+                  preview={false}
+                  style={{ width: "100%", height: "85vh" }}
+                  src={"services.jpg"}
+                />
+              </Flex>
+              <Flex style={{ width: "40%", padding: "2rem" }}>
+                <div
+                  style={
+                    {
+                      // position: "absolute",
+                      // top: "50%",
+                      // left: "50%",
+                      // transform: "translate(-50%, -50%)",
+                      // textAlign: "center",
+                      // color: "black",
+                      // zIndex: 1,
+                      // backgroundColor: "white",
+                      // opacity: 0.8,
+                      // padding: "2rem",
+                    }
+                  }
+                >
+                  <h1
+                    style={{
+                      fontSize: "3rem",
+                      textDecoration: "underline",
+                      textDecorationColor: "#fca503",
+                    }}
+                  >
+                    ABOUT US
+                  </h1>
+                  <p style={{ fontSize: "1.2rem" }}>
+                    KWIKSERVE was born from a vision to empower local artisans
+                    and skilled workers in urban areas. Faced with fierce
+                    competition and limited branding, we set out to hire, train,
+                    and transform these talented individuals. We provided them
+                    with the tools, skills, and knowledge to thrive in the
+                    competitive market, turning their small businesses into
+                    efficient, customer-focused enterprises. text
+                  </p>
+                  <Button
+                    style={{
+                      backgroundColor: "#fca503", // Background color
+                      color: "white", // Text color
 
-        <Flex style={{ backgroundColor: "#ebedea", textAlign: "left" }}>
-          <Flex style={{ width: "60%" }}>
-            <Image
-              preview={false}
-              style={{ width: "100%", height: "85vh" }}
-              src={"services.jpg"}
-            />
-          </Flex>
-          <Flex style={{ width: "40%", padding: "2rem" }}>
-            <div
-              style={
-                {
-                  // position: "absolute",
-                  // top: "50%",
-                  // left: "50%",
-                  // transform: "translate(-50%, -50%)",
-                  // textAlign: "center",
-                  // color: "black",
-                  // zIndex: 1,
-                  // backgroundColor: "white",
-                  // opacity: 0.8,
-                  // padding: "2rem",
-                }
-              }
-            >
-              <h1
-                style={{
-                  fontSize: "3rem",
-                  textDecoration: "underline",
-                  textDecorationColor: "#fca503",
-                }}
-              >
-                ABOUT US
-              </h1>
-              <p style={{ fontSize: "1.2rem" }}>
-                KWIKSERVE was born from a vision to empower local artisans and
-                skilled workers in urban areas. Faced with fierce competition
-                and limited branding, we set out to hire, train, and transform
-                these talented individuals. We provided them with the tools,
-                skills, and knowledge to thrive in the competitive market,
-                turning their small businesses into efficient, customer-focused
-                enterprises. text
-              </p>
-              <Button
-                style={{
-                  backgroundColor: "#fca503", // Background color
-                  color: "white", // Text color
-
-                  borderRadius: "5px", // Border radius
-                  width: "8rem",
-                  cursor: "pointer", // Cursor on hover
-                  fontSize: "1.5rem", // Font size
-                  marginTop: "1rem",
-                  height: "3rem",
-                  borderColor: "#FFB6C1",
-                }}
-                onClick={() => navigate("/about")}
-              >
-                Explore
-              </Button>
-            </div>
-          </Flex>
-        </Flex>
+                      borderRadius: "5px", // Border radius
+                      width: "8rem",
+                      cursor: "pointer", // Cursor on hover
+                      fontSize: "1.5rem", // Font size
+                      marginTop: "1rem",
+                      height: "3rem",
+                      borderColor: "#FFB6C1",
+                    }}
+                    onClick={() => navigate("/about")}
+                  >
+                    Explore
+                  </Button>
+                </div>
+              </Flex>
+            </Flex>
+          </motion.div>
+        </div>
         <ServiceModal
           selectedService={selectedService}
           modalVisible={modalVisible}
