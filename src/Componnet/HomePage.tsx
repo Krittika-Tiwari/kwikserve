@@ -16,7 +16,7 @@ function HomePage() {
   const [ref1, inView1] = useInView();
   const [ref2, inView2] = useInView();
   const [ref3, inView3] = useInView();
-  const [ref4, inView4] = useInView();
+  // const [ref4, inView4] = useInView();
   const [ref5, inView5] = useInView();
 
   // Function to handle opening the modal
