@@ -8,11 +8,13 @@ import {
   Layout,
   TimePicker,
 } from "antd";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useState } from "react";
 import Lottie from "lottie-react";
 import cat from "../Assets/cat.json";
+import sucessfull from "../Assets/sucessfull.json";
+import dayjs from "dayjs";
 
 const { Content } = Layout;
 
@@ -32,6 +34,8 @@ const ServicePaymentPage = () => {
   const [timing, setTiming] = useState(null);
   const [date, setDate] = useState(null);
   const [isServiceBooked, setIsServiceBooked] = useState(false);
+
+  const navigate = useNavigate();
 
   const services = [
     {
@@ -489,6 +493,29 @@ const ServicePaymentPage = () => {
     };
 
     console.log("Form data:", formData);
+
+    // Format date and time using dayjs
+    const formattedDate = date ? dayjs(date).format("YYYY-MM-DD") : null;
+    const formattedTime = timing ? dayjs(timing).format("HH:mm") : null;
+
+    // localStorage.removeItem("selectedService");
+
+    const storedData = localStorage.getItem("selectedService");
+    const existingData = storedData ? JSON.parse(storedData) : [];
+
+    const data = {
+      formData: {
+        ...formData,
+        date: formattedDate, // Update date with formatted value
+        time: formattedTime, // Update time with formatted value
+      },
+      facality: FacilityserviceIdss,
+    };
+
+    const updatedData = [...existingData, data];
+
+    // Save updated data to local storage
+    localStorage.setItem("selectedService", JSON.stringify(updatedData));
     setIsServiceBooked(true);
   };
 
@@ -812,10 +839,24 @@ const ServicePaymentPage = () => {
                   </Button>
                 </div>
               ) : (
-                <div style={{ marginTop: "1rem", textAlign: "center" }}>
-                  <h3>Your service is booked!</h3>
-                  {/* <p>Date: {date }</p>
-                  <p>Time: {timing }</p> */}
+                <div style={{ marginTop: "3rem", textAlign: "center" }}>
+                  <div>
+                    <Lottie
+                      style={{ width: "25vw", height: "20vw" }}
+                      animationData={sucessfull}
+                      loop={true}
+                    />
+                    <h3>Your service is booked!</h3>
+
+                    <Button
+                      type="primary"
+                      onClick={() => navigate("/mybooking")}
+                      style={{ backgroundColor: "#fca503", width: "10vw", height: "5vh" }}
+                      loading={isLoading}
+                    >
+                      Your Booking 😊
+                    </Button>
+                  </div>
                 </div>
               )}
             </div>

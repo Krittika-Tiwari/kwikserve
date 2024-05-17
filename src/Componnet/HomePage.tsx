@@ -801,6 +801,7 @@ function HomePage() {
                 </Flex>
                 <Flex style={{ textAlign: "left" }}>
                   {displayedOffer.map((subscription: any, index) => (
+                    
                     <Card
                       hoverable
                       key={index}
@@ -866,7 +867,7 @@ function HomePage() {
           <motion.div
             initial={{ opacity: 0.5 }}
             animate={inView5 ? { opacity: 1 } : { opacity: 0.5 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 1, ease: "easeInOut" , delay: 0.7}}
           >
             <Flex style={{ backgroundColor: "#ebedea", textAlign: "left" }}>
               <Flex style={{ width: "60%" }}>

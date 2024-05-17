@@ -563,6 +563,18 @@ function HomePageNavBar() {
         >
           About Us
         </Button>
+        <Button
+          style={{
+            height: "2.5rem",
+            margin: "0.5rem",
+            fontSize: "1rem",
+            width: "8rem",
+            fontWeight: "bold",
+          }}
+          onClick={() => navigate("/mybooking")}
+        >
+          My Booking
+        </Button>
 
         {isAuthenticated && user ? (
           <Popover

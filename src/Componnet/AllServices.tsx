@@ -508,7 +508,7 @@ const AllServices = () => {
               stiffness: 100,
               damping: 105,
               delay: index * 0.5,
-            }} // Delay each card by 0.2 seconds
+            }} 
           >
             <Card
               onClick={() => openModal(service)}
