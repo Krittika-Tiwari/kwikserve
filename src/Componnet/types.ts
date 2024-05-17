@@ -16,5 +16,9 @@ export interface Service {
     name: string;
     price: number;
     imageUrl?: string;
+    works?: any[];
+    brands?: any[];
+    includes?: string[];
+
   }
   

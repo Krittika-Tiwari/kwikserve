@@ -193,21 +193,222 @@ function HomePage() {
               name: "Basic",
               price: 399,
               imageUrl: "https://example.com/acservicebasic.jpg",
+              includes: [
+                "Basic water-jet cleaning of indoor unit",
+                "Basic cleaning of outdoor unit",
+                "Final checks & clean-up.",
+              ],
+              brands: [
+                {
+                  name: "Voltas",
+                  image: "https://vectorseek.com/wp-content/uploads/2023/09/Voltas-Logo-Vector.svg-.png",
+                },
+                {
+                  name: "LG",
+                  image: "https://w7.pngwing.com/pngs/156/79/png-transparent-lg-electronics-lg-corp-solar-panels-solar-energy-consumer-electronics-lg-logo-text-trademark-logo.png",
+                },
+                {
+                  name: "Samsung",
+                  image: "https://e7.pngegg.com/pngimages/752/825/png-clipart-samsung-galaxy-e7-samsung-galaxy-j2-samsung-galaxy-a8-a8-logo-samsung-blue-electronics.png",
+                },
+                {
+                  name: "Daikin",
+                  image: "https://logos-world.net/wp-content/uploads/2023/01/Daikin-Logo-1963.png",
+                },
+                {
+                  name: "Blue Star",
+                  image: "https://iconape.com/wp-content/png_logo_vector/blue-star-logo.png",
+                },
+                {
+                  name: "Hitachi",
+                  image: "https://w7.pngwing.com/pngs/945/291/png-transparent-hitachi-hd-logo-thumbnail.png",
+                },
+                {
+                  name: "Carrier",
+                  image: "https://e7.pngegg.com/pngimages/733/35/png-clipart-carrier-corporation-air-conditioning-hvac-logo-carrier-turn-to-the-experts-business-blue-company.png",
+                },
+                {
+                  name: "Godrej",
+                  image: "https://banner2.cleanpng.com/20180324/qcw/kisspng-godrej-group-logo-advertising-godrej-properties-li-mattresse-5ab64f5fc75444.7076421215218973118165.jpg",
+                },
+                {
+                  name: "Panasonic",
+                  image: "https://w7.pngwing.com/pngs/282/139/png-transparent-panasonic-avionics-corporation-business-zetes-logo-business-blue-text-people.png",
+                },
+                {
+                  name: "Whirlpool",
+                  image: "https://w7.pngwing.com/pngs/286/661/png-transparent-whirlpool-corporation-logo-whirlpool-corporation-home-appliance-clothes-dryer-company-washing-machine-whirlpool-corporation-logo-text-kitchen-stove-electric-stove.png",
+                },
+                {
+                  name: "Haier",
+                  image: "https://w1.pngwing.com/pngs/487/294/png-transparent-home-logo-haier-refrigerator-air-conditioners-home-appliance-haier-hrf665isb2-haier-america-company-llc-haier-hrf664isb2-thumbnail.png",
+                },
+                {
+                  name: "Toshiba",
+                  image: "https://w7.pngwing.com/pngs/259/820/png-transparent-laptop-logo-toshiba-business-service-about-us-electronics-company-text.png",
+                },
+                
+              ],
             },
             {
               name: "Deep clean service",
               price: 749,
               imageUrl: "https://example.com/acservicedeepclean.jpg",
+              brands: [
+                {
+                  name: "Voltas",
+                  image: "https://vectorseek.com/wp-content/uploads/2023/09/Voltas-Logo-Vector.svg-.png",
+                },
+                {
+                  name: "LG",
+                  image: "https://w7.pngwing.com/pngs/156/79/png-transparent-lg-electronics-lg-corp-solar-panels-solar-energy-consumer-electronics-lg-logo-text-trademark-logo.png",
+                },
+                {
+                  name: "Samsung",
+                  image: "https://e7.pngegg.com/pngimages/752/825/png-clipart-samsung-galaxy-e7-samsung-galaxy-j2-samsung-galaxy-a8-a8-logo-samsung-blue-electronics.png",
+                },
+                {
+                  name: "Daikin",
+                  image: "https://logos-world.net/wp-content/uploads/2023/01/Daikin-Logo-1963.png",
+                },
+                {
+                  name: "Blue Star",
+                  image: "https://iconape.com/wp-content/png_logo_vector/blue-star-logo.png",
+                },
+                {
+                  name: "Hitachi",
+                  image: "https://w7.pngwing.com/pngs/945/291/png-transparent-hitachi-hd-logo-thumbnail.png",
+                },
+                {
+                  name: "Carrier",
+                  image: "https://e7.pngegg.com/pngimages/733/35/png-clipart-carrier-corporation-air-conditioning-hvac-logo-carrier-turn-to-the-experts-business-blue-company.png",
+                },
+                {
+                  name: "Godrej",
+                  image: "https://banner2.cleanpng.com/20180324/qcw/kisspng-godrej-group-logo-advertising-godrej-properties-li-mattresse-5ab64f5fc75444.7076421215218973118165.jpg",
+                },
+                {
+                  name: "Panasonic",
+                  image: "https://w7.pngwing.com/pngs/282/139/png-transparent-panasonic-avionics-corporation-business-zetes-logo-business-blue-text-people.png",
+                },
+                {
+                  name: "Whirlpool",
+                  image: "https://w7.pngwing.com/pngs/286/661/png-transparent-whirlpool-corporation-logo-whirlpool-corporation-home-appliance-clothes-dryer-company-washing-machine-whirlpool-corporation-logo-text-kitchen-stove-electric-stove.png",
+                },
+                {
+                  name: "Haier",
+                  image: "https://w1.pngwing.com/pngs/487/294/png-transparent-home-logo-haier-refrigerator-air-conditioners-home-appliance-haier-hrf665isb2-haier-america-company-llc-haier-hrf664isb2-thumbnail.png",
+                },
+                {
+                  name: "Toshiba",
+                  image: "https://w7.pngwing.com/pngs/259/820/png-transparent-laptop-logo-toshiba-business-service-about-us-electronics-company-text.png",
+                },
+                
+              ],
+              works: [
+                {
+                  title: "Deep cleaning",
+                  description:
+                    " Deep cleaning of indoor & outdoor unit before the anti-rust protection is applied",
+                  image:
+                    "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1707477330549-dd1da3.jpeg",
+                },
+                {
+                  title: "Anti-rust protection",
+                  description:
+                    "Specialised anti-rust coating for copper coils to prevent gas leakage (Upto 1 year)",
+                  image:
+                    "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template,q_auto:low,f_auto/dpr_1,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1709199492530-507412.jpeg",
+                },
+              ],
             },
             {
               name: "Gas leak fix and Refill",
               price: 2399,
               imageUrl: "https://example.com/acservicegasleak.jpg",
+              works: [
+                {
+                  title: "Pre-service checks",
+                  description:
+                    "Voltage, ampere, pressure and other safety checks",
+                  image:"https://www.aketsqa.com/gallery_gen/24df63938262ee1e1ce479a650aeb022_300x349.6875.png"
+                },
+                {
+                  title:"	Leak identification & fixing",
+                  description:"Leak testing with nitrogen, compressed air & soap solution. Fixing the leaks by brazing & rechecking",
+                  image:"https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template,q_auto:low,f_auto/dpr_1,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1677587052382-a78672.jpeg"
+                },
+                {
+                  title:"Gas refill",
+                  description:"Filling of the gas by weight/ back pressure",
+                  image:"https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template,q_auto:low,f_auto/dpr_1,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1677587045509-940182.jpeg"
+                },{
+                  title:"	Post-service cleanup",
+                  description:"Post-service cleanup of the AC & service area",
+                  image:"https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template,q_auto:low,f_auto/dpr_1,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1677587037312-a36cb5.jpeg"
+                }
+              ],
             },
             {
               name: "A/c install/uninstall",
               price: 599,
               imageUrl: "https://example.com/acserviceinstall.jpg",
+              includes: [
+                "Drilling, wiring connections, installation of the units (indoor & outdoor) & pipe fixes",
+                "Gas check to prevent leakages",
+                "Cooling rate & device checks followed by cleanup Of service area",
+              ],
+              brands: [
+                {
+                  name: "Voltas",
+                  image: "https://vectorseek.com/wp-content/uploads/2023/09/Voltas-Logo-Vector.svg-.png",
+                },
+                {
+                  name: "LG",
+                  image: "https://w7.pngwing.com/pngs/156/79/png-transparent-lg-electronics-lg-corp-solar-panels-solar-energy-consumer-electronics-lg-logo-text-trademark-logo.png",
+                },
+                {
+                  name: "Samsung",
+                  image: "https://e7.pngegg.com/pngimages/752/825/png-clipart-samsung-galaxy-e7-samsung-galaxy-j2-samsung-galaxy-a8-a8-logo-samsung-blue-electronics.png",
+                },
+                {
+                  name: "Daikin",
+                  image: "https://logos-world.net/wp-content/uploads/2023/01/Daikin-Logo-1963.png",
+                },
+                {
+                  name: "Blue Star",
+                  image: "https://iconape.com/wp-content/png_logo_vector/blue-star-logo.png",
+                },
+                {
+                  name: "Hitachi",
+                  image: "https://w7.pngwing.com/pngs/945/291/png-transparent-hitachi-hd-logo-thumbnail.png",
+                },
+                {
+                  name: "Carrier",
+                  image: "https://e7.pngegg.com/pngimages/733/35/png-clipart-carrier-corporation-air-conditioning-hvac-logo-carrier-turn-to-the-experts-business-blue-company.png",
+                },
+                {
+                  name: "Godrej",
+                  image: "https://banner2.cleanpng.com/20180324/qcw/kisspng-godrej-group-logo-advertising-godrej-properties-li-mattresse-5ab64f5fc75444.7076421215218973118165.jpg",
+                },
+                {
+                  name: "Panasonic",
+                  image: "https://w7.pngwing.com/pngs/282/139/png-transparent-panasonic-avionics-corporation-business-zetes-logo-business-blue-text-people.png",
+                },
+                {
+                  name: "Whirlpool",
+                  image: "https://w7.pngwing.com/pngs/286/661/png-transparent-whirlpool-corporation-logo-whirlpool-corporation-home-appliance-clothes-dryer-company-washing-machine-whirlpool-corporation-logo-text-kitchen-stove-electric-stove.png",
+                },
+                {
+                  name: "Haier",
+                  image: "https://w1.pngwing.com/pngs/487/294/png-transparent-home-logo-haier-refrigerator-air-conditioners-home-appliance-haier-hrf665isb2-haier-america-company-llc-haier-hrf664isb2-thumbnail.png",
+                },
+                {
+                  name: "Toshiba",
+                  image: "https://w7.pngwing.com/pngs/259/820/png-transparent-laptop-logo-toshiba-business-service-about-us-electronics-company-text.png",
+                },
+                
+              ],
             },
           ],
         },
@@ -397,6 +598,11 @@ function HomePage() {
       facilities: [
         {
           name: "General pest control (cockroaches, Ants)",
+          includes:[
+            "Detailed inspection: Professionals identify all kind of pests in hidden and tricky areas",
+            "First Visit: Spray treatment to target adult pests",
+            "Second Visit: Gel treatment after two weeks to target nymphs and newely-hatched eggs",
+          ],
           services: [
             {
               name: "Apartment 1bhk",
@@ -417,6 +623,13 @@ function HomePage() {
         },
         {
           name: "Terminate control",
+          includes:[
+            "Detailed inspection: Professioanls check all wooden items to identify all infested areas",
+            "Chemical application on all holes: Chemical spray on all holes to stop termite breeding",
+            "White cement application: Cement application on all the treated holes to prevent future infestation",
+            "Chemical application on all wooden surfaces: Spraying chemical on all wooden surfaces in case of severe infestation"
+            
+          ],
           services: [
             {
               name: "1bhk",
@@ -468,40 +681,38 @@ function HomePage() {
 
   const subscriptionData = [
     {
-      type: "Men's Hair and Grooming",
-      price: 4860,
-      discount: "10%",
+      type: "3-Month Subscription",
+      price: 149,
+     
       services: [
-        { name: "Haircut and Beard Styling", sessionsPerMonth: 3 },
-        { name: "Detan", sessionsPerMonth: 2 },
-        { name: "Facial & Cleanup", sessionsPerMonth: 2 },
-        { name: "Hair Color", sessionsPerMonth: 2 },
-        { name: "Massage", sessionsPerMonth: 7 },
+        "All services (cleaning, pest control, HVAC, and beauty salon)",
+        "10% discount on additional services",
+        "Flexible scheduling",
+        "Priority booking"
       ],
     },
     {
-      type: "Women's Hair and Makeup Enhanced",
-      price: 5940,
-      discount: "10%",
+      type: "	6-Month Subscription",
+      price: 249,
+      
       services: [
-        { name: "Cut & Style", sessionsPerMonth: 4 },
-        { name: "Trim & Style", sessionsPerMonth: 4 },
-        { name: "Professional Makeup", sessionsPerMonth: 4 },
+       "All services (cleaning, pest control, HVAC, and beauty salon)",
+       "15% discount on additional services",
+"Flexible scheduling",
+"Priority booking",
+"Book 2 consecutive services and get the third one free (only applicable in cleaning and beauty salon services)"
       ],
     },
     {
-      type: "Classic Cleaning",
-      price: 5400,
-      discount: "10%",
+      type: "12-Month Subscription",
+      price: 399,
+    
       services: [
-        { name: "1 BHK Occupied", price: 2519 },
-        { name: "1 BHK Vacant", price: 2249 },
-        { name: "2 BHK Occupied", price: 2969 },
-        { name: "2 BHK Vacant", price: 2609 },
-        { name: "3 BHK Occupied", price: 3869 },
-        { name: "3 BHK Vacant", price: 3419 },
-        { name: "4 BHK Occupied", price: 4499 },
-        { name: "4 BHK Vacant", price: 4049 },
+       "All services (cleaning, pest control, HVAC, and beauty salon)",
+       "15% discount on additional services",
+       "Flexible scheduling",
+       "Priority booking",
+       "Book 2 consecutive services and get the third one free (only applicable in cleaning and beauty salon services)"
       ],
     },
     {
@@ -532,9 +743,9 @@ function HomePage() {
     navigate("/all-services");
   };
 
-  const handleSeeAllSubscription = () => {
-    navigate("/all-subscriptions");
-  };
+  // const handleSeeAllSubscription = () => {
+  //   navigate("/all-subscriptions");
+  // };
 
   const handelSubscriptionPayment = (id: number) => {
     navigate(`/subscriptionPayment/${id}`);
@@ -787,7 +998,7 @@ function HomePage() {
                   >
                     SUBSCRIPTION
                   </Text>
-                  <Button
+                  {/* <Button
                     style={{
                       borderRadius: 0,
                       borderColor: "#fca503",
@@ -797,7 +1008,7 @@ function HomePage() {
                     onClick={handleSeeAllSubscription}
                   >
                     SEE All SUBSCRIPTION
-                  </Button>
+                  </Button> */}
                 </Flex>
                 <Flex style={{ textAlign: "left" }}>
                   {displayedOffer.map((subscription: any, index) => (
@@ -816,11 +1027,10 @@ function HomePage() {
                       }}
                     >
                       <Flex vertical style={{ paddingInline: "1rem" }}>
-                        <h3>3 Months Plans</h3>
+                        
                         <p>
                           <Flex gap={5} align="center">
-                            <h3>PRICE : </h3> ₹{subscription.price} (
-                            {subscription.discount} discount)
+                            <h3>PRICE : </h3> ₹{subscription.price} 
                           </Flex>
                         </p>
                         <ul
@@ -829,6 +1039,7 @@ function HomePage() {
                           {subscription.services.map(
                             (service: any, index: any) => (
                               <li key={index}>
+                                <div style={{ display: "flex" ,alignItems:"start"}}>
                                 <CheckCircleOutlined
                                   style={{
                                     marginRight: "0.6rem",
@@ -836,10 +1047,11 @@ function HomePage() {
                                     color: "#fcbe03",
                                   }}
                                 />{" "}
-                                {service.name}{" "}
-                                {service.sessionsPerMonth &&
+                                <div>
+                                {service}{" "}</div></div>
+                                {/* {service.sessionsPerMonth &&
                                   `(Sessions per month: ${service.sessionsPerMonth})`}{" "}
-                                {service.price && `(Price: ₹${service.price})`}
+                                {service.price && `(Price: ₹${service.price})`} */}
                               </li>
                             )
                           )}

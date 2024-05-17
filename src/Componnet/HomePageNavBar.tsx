@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
+
 function HomePageNavBar() {
   const [searchValue, setSearchValue] = useState("");
   const { loginWithRedirect } = useAuth0();
@@ -171,21 +172,222 @@ function HomePageNavBar() {
               name: "Basic",
               price: 399,
               imageUrl: "https://example.com/acservicebasic.jpg",
+              includes: [
+                "Basic water-jet cleaning of indoor unit",
+                "Basic cleaning of outdoor unit",
+                "Final checks & clean-up.",
+              ],
+              brands: [
+                {
+                  name: "Voltas",
+                  image: "https://vectorseek.com/wp-content/uploads/2023/09/Voltas-Logo-Vector.svg-.png",
+                },
+                {
+                  name: "LG",
+                  image: "https://w7.pngwing.com/pngs/156/79/png-transparent-lg-electronics-lg-corp-solar-panels-solar-energy-consumer-electronics-lg-logo-text-trademark-logo.png",
+                },
+                {
+                  name: "Samsung",
+                  image: "https://e7.pngegg.com/pngimages/752/825/png-clipart-samsung-galaxy-e7-samsung-galaxy-j2-samsung-galaxy-a8-a8-logo-samsung-blue-electronics.png",
+                },
+                {
+                  name: "Daikin",
+                  image: "https://logos-world.net/wp-content/uploads/2023/01/Daikin-Logo-1963.png",
+                },
+                {
+                  name: "Blue Star",
+                  image: "https://iconape.com/wp-content/png_logo_vector/blue-star-logo.png",
+                },
+                {
+                  name: "Hitachi",
+                  image: "https://w7.pngwing.com/pngs/945/291/png-transparent-hitachi-hd-logo-thumbnail.png",
+                },
+                {
+                  name: "Carrier",
+                  image: "https://e7.pngegg.com/pngimages/733/35/png-clipart-carrier-corporation-air-conditioning-hvac-logo-carrier-turn-to-the-experts-business-blue-company.png",
+                },
+                {
+                  name: "Godrej",
+                  image: "https://banner2.cleanpng.com/20180324/qcw/kisspng-godrej-group-logo-advertising-godrej-properties-li-mattresse-5ab64f5fc75444.7076421215218973118165.jpg",
+                },
+                {
+                  name: "Panasonic",
+                  image: "https://w7.pngwing.com/pngs/282/139/png-transparent-panasonic-avionics-corporation-business-zetes-logo-business-blue-text-people.png",
+                },
+                {
+                  name: "Whirlpool",
+                  image: "https://w7.pngwing.com/pngs/286/661/png-transparent-whirlpool-corporation-logo-whirlpool-corporation-home-appliance-clothes-dryer-company-washing-machine-whirlpool-corporation-logo-text-kitchen-stove-electric-stove.png",
+                },
+                {
+                  name: "Haier",
+                  image: "https://w1.pngwing.com/pngs/487/294/png-transparent-home-logo-haier-refrigerator-air-conditioners-home-appliance-haier-hrf665isb2-haier-america-company-llc-haier-hrf664isb2-thumbnail.png",
+                },
+                {
+                  name: "Toshiba",
+                  image: "https://w7.pngwing.com/pngs/259/820/png-transparent-laptop-logo-toshiba-business-service-about-us-electronics-company-text.png",
+                },
+                
+              ],
             },
             {
               name: "Deep clean service",
               price: 749,
               imageUrl: "https://example.com/acservicedeepclean.jpg",
+              brands: [
+                {
+                  name: "Voltas",
+                  image: "https://vectorseek.com/wp-content/uploads/2023/09/Voltas-Logo-Vector.svg-.png",
+                },
+                {
+                  name: "LG",
+                  image: "https://w7.pngwing.com/pngs/156/79/png-transparent-lg-electronics-lg-corp-solar-panels-solar-energy-consumer-electronics-lg-logo-text-trademark-logo.png",
+                },
+                {
+                  name: "Samsung",
+                  image: "https://e7.pngegg.com/pngimages/752/825/png-clipart-samsung-galaxy-e7-samsung-galaxy-j2-samsung-galaxy-a8-a8-logo-samsung-blue-electronics.png",
+                },
+                {
+                  name: "Daikin",
+                  image: "https://logos-world.net/wp-content/uploads/2023/01/Daikin-Logo-1963.png",
+                },
+                {
+                  name: "Blue Star",
+                  image: "https://iconape.com/wp-content/png_logo_vector/blue-star-logo.png",
+                },
+                {
+                  name: "Hitachi",
+                  image: "https://w7.pngwing.com/pngs/945/291/png-transparent-hitachi-hd-logo-thumbnail.png",
+                },
+                {
+                  name: "Carrier",
+                  image: "https://e7.pngegg.com/pngimages/733/35/png-clipart-carrier-corporation-air-conditioning-hvac-logo-carrier-turn-to-the-experts-business-blue-company.png",
+                },
+                {
+                  name: "Godrej",
+                  image: "https://banner2.cleanpng.com/20180324/qcw/kisspng-godrej-group-logo-advertising-godrej-properties-li-mattresse-5ab64f5fc75444.7076421215218973118165.jpg",
+                },
+                {
+                  name: "Panasonic",
+                  image: "https://w7.pngwing.com/pngs/282/139/png-transparent-panasonic-avionics-corporation-business-zetes-logo-business-blue-text-people.png",
+                },
+                {
+                  name: "Whirlpool",
+                  image: "https://w7.pngwing.com/pngs/286/661/png-transparent-whirlpool-corporation-logo-whirlpool-corporation-home-appliance-clothes-dryer-company-washing-machine-whirlpool-corporation-logo-text-kitchen-stove-electric-stove.png",
+                },
+                {
+                  name: "Haier",
+                  image: "https://w1.pngwing.com/pngs/487/294/png-transparent-home-logo-haier-refrigerator-air-conditioners-home-appliance-haier-hrf665isb2-haier-america-company-llc-haier-hrf664isb2-thumbnail.png",
+                },
+                {
+                  name: "Toshiba",
+                  image: "https://w7.pngwing.com/pngs/259/820/png-transparent-laptop-logo-toshiba-business-service-about-us-electronics-company-text.png",
+                },
+                
+              ],
+              works: [
+                {
+                  title: "Deep cleaning",
+                  description:
+                    " Deep cleaning of indoor & outdoor unit before the anti-rust protection is applied",
+                  image:
+                    "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1707477330549-dd1da3.jpeg",
+                },
+                {
+                  title: "Anti-rust protection",
+                  description:
+                    "Specialised anti-rust coating for copper coils to prevent gas leakage (Upto 1 year)",
+                  image:
+                    "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template,q_auto:low,f_auto/dpr_1,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1709199492530-507412.jpeg",
+                },
+              ],
             },
             {
               name: "Gas leak fix and Refill",
               price: 2399,
               imageUrl: "https://example.com/acservicegasleak.jpg",
+              works: [
+                {
+                  title: "Pre-service checks",
+                  description:
+                    "Voltage, ampere, pressure and other safety checks",
+                  image:"https://www.aketsqa.com/gallery_gen/24df63938262ee1e1ce479a650aeb022_300x349.6875.png"
+                },
+                {
+                  title:"	Leak identification & fixing",
+                  description:"Leak testing with nitrogen, compressed air & soap solution. Fixing the leaks by brazing & rechecking",
+                  image:"https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template,q_auto:low,f_auto/dpr_1,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1677587052382-a78672.jpeg"
+                },
+                {
+                  title:"Gas refill",
+                  description:"Filling of the gas by weight/ back pressure",
+                  image:"https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template,q_auto:low,f_auto/dpr_1,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1677587045509-940182.jpeg"
+                },{
+                  title:"	Post-service cleanup",
+                  description:"Post-service cleanup of the AC & service area",
+                  image:"https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template,q_auto:low,f_auto/dpr_1,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1677587037312-a36cb5.jpeg"
+                }
+              ],
             },
             {
               name: "A/c install/uninstall",
               price: 599,
               imageUrl: "https://example.com/acserviceinstall.jpg",
+              includes: [
+                "Drilling, wiring connections, installation of the units (indoor & outdoor) & pipe fixes",
+                "Gas check to prevent leakages",
+                "Cooling rate & device checks followed by cleanup Of service area",
+              ],
+              brands: [
+                {
+                  name: "Voltas",
+                  image: "https://vectorseek.com/wp-content/uploads/2023/09/Voltas-Logo-Vector.svg-.png",
+                },
+                {
+                  name: "LG",
+                  image: "https://w7.pngwing.com/pngs/156/79/png-transparent-lg-electronics-lg-corp-solar-panels-solar-energy-consumer-electronics-lg-logo-text-trademark-logo.png",
+                },
+                {
+                  name: "Samsung",
+                  image: "https://e7.pngegg.com/pngimages/752/825/png-clipart-samsung-galaxy-e7-samsung-galaxy-j2-samsung-galaxy-a8-a8-logo-samsung-blue-electronics.png",
+                },
+                {
+                  name: "Daikin",
+                  image: "https://logos-world.net/wp-content/uploads/2023/01/Daikin-Logo-1963.png",
+                },
+                {
+                  name: "Blue Star",
+                  image: "https://iconape.com/wp-content/png_logo_vector/blue-star-logo.png",
+                },
+                {
+                  name: "Hitachi",
+                  image: "https://w7.pngwing.com/pngs/945/291/png-transparent-hitachi-hd-logo-thumbnail.png",
+                },
+                {
+                  name: "Carrier",
+                  image: "https://e7.pngegg.com/pngimages/733/35/png-clipart-carrier-corporation-air-conditioning-hvac-logo-carrier-turn-to-the-experts-business-blue-company.png",
+                },
+                {
+                  name: "Godrej",
+                  image: "https://banner2.cleanpng.com/20180324/qcw/kisspng-godrej-group-logo-advertising-godrej-properties-li-mattresse-5ab64f5fc75444.7076421215218973118165.jpg",
+                },
+                {
+                  name: "Panasonic",
+                  image: "https://w7.pngwing.com/pngs/282/139/png-transparent-panasonic-avionics-corporation-business-zetes-logo-business-blue-text-people.png",
+                },
+                {
+                  name: "Whirlpool",
+                  image: "https://w7.pngwing.com/pngs/286/661/png-transparent-whirlpool-corporation-logo-whirlpool-corporation-home-appliance-clothes-dryer-company-washing-machine-whirlpool-corporation-logo-text-kitchen-stove-electric-stove.png",
+                },
+                {
+                  name: "Haier",
+                  image: "https://w1.pngwing.com/pngs/487/294/png-transparent-home-logo-haier-refrigerator-air-conditioners-home-appliance-haier-hrf665isb2-haier-america-company-llc-haier-hrf664isb2-thumbnail.png",
+                },
+                {
+                  name: "Toshiba",
+                  image: "https://w7.pngwing.com/pngs/259/820/png-transparent-laptop-logo-toshiba-business-service-about-us-electronics-company-text.png",
+                },
+                
+              ],
             },
           ],
         },
@@ -375,6 +577,11 @@ function HomePageNavBar() {
       facilities: [
         {
           name: "General pest control (cockroaches, Ants)",
+          includes:[
+            "Detailed inspection: Professionals identify all kind of pests in hidden and tricky areas",
+            "First Visit: Spray treatment to target adult pests",
+            "Second Visit: Gel treatment after two weeks to target nymphs and newely-hatched eggs",
+          ],
           services: [
             {
               name: "Apartment 1bhk",
@@ -395,6 +602,13 @@ function HomePageNavBar() {
         },
         {
           name: "Terminate control",
+          includes:[
+            "Detailed inspection: Professioanls check all wooden items to identify all infested areas",
+            "Chemical application on all holes: Chemical spray on all holes to stop termite breeding",
+            "White cement application: Cement application on all the treated holes to prevent future infestation",
+            "Chemical application on all wooden surfaces: Spraying chemical on all wooden surfaces in case of severe infestation"
+            
+          ],
           services: [
             {
               name: "1bhk",
@@ -416,32 +630,32 @@ function HomePageNavBar() {
         // Add other pest control services here
       ],
     },
-    {
-      key: 6,
-      name: "PreNatal Yoga",
-      imageUrl:
-        "https://static.wixstatic.com/media/e1f7f0_99d7a7988fa2423fa527e81bff8d7c74~mv2.jpg/v1/fill/w_2500,h_1666,al_c/e1f7f0_99d7a7988fa2423fa527e81bff8d7c74~mv2.jpg",
-      description:
-        "Experience the benefits of yoga during pregnancy with our PreNatal Yoga classes. Designed to promote physical and emotional well-being during pregnancy and prepare expectant mothers for childbirth, our classes offer gentle exercises, breathing techniques, and relaxation practices tailored to the needs of pregnant women.",
-      facilities: [
-        {
-          name: "Online Sessions",
-          services: [
-            { name: "15 sessions (1 month)", price: 4499 },
-            { name: "45 sessions (3 months)", price: 13199 },
-            { name: "135 sessions (9 months)", price: 38499 },
-          ],
-        },
-        {
-          name: "At Home (Personal Training)",
-          services: [
-            { name: "15 sessions (1 month)", price: 6999 },
-            { name: "45 sessions (3 months)", price: 20699 },
-            { name: "135 sessions (9 months)", price: 60999 },
-          ],
-        },
-      ],
-    },
+    // {
+    //   key: 6,
+    //   name: "PreNatal Yoga",
+    //   imageUrl:
+    //     "https://static.wixstatic.com/media/e1f7f0_99d7a7988fa2423fa527e81bff8d7c74~mv2.jpg/v1/fill/w_2500,h_1666,al_c/e1f7f0_99d7a7988fa2423fa527e81bff8d7c74~mv2.jpg",
+    //   description:
+    //     "Experience the benefits of yoga during pregnancy with our PreNatal Yoga classes. Designed to promote physical and emotional well-being during pregnancy and prepare expectant mothers for childbirth, our classes offer gentle exercises, breathing techniques, and relaxation practices tailored to the needs of pregnant women.",
+    //   facilities: [
+    //     {
+    //       name: "Online Sessions",
+    //       services: [
+    //         { name: "15 sessions (1 month)", price: 4499 },
+    //         { name: "45 sessions (3 months)", price: 13199 },
+    //         { name: "135 sessions (9 months)", price: 38499 },
+    //       ],
+    //     },
+    //     {
+    //       name: "At Home (Personal Training)",
+    //       services: [
+    //         { name: "15 sessions (1 month)", price: 6999 },
+    //         { name: "45 sessions (3 months)", price: 20699 },
+    //         { name: "135 sessions (9 months)", price: 60999 },
+    //       ],
+    //     },
+    //   ],
+    // },
   ];
 
   const filteredFacilities = services.flatMap((service) =>
