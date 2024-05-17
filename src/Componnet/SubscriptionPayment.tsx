@@ -14,40 +14,38 @@ const SubscriptionPayment = () => {
 
   const subscriptionData = [
     {
-      type: "Men's Hair and Grooming",
-      price: 4860,
-      discount: "10%",
+      type: "3-Month Subscription",
+      price: 149,
+
       services: [
-        { name: "Haircut and Beard Styling", sessionsPerMonth: 3 },
-        { name: "Detan", sessionsPerMonth: 2 },
-        { name: "Facial & Cleanup", sessionsPerMonth: 2 },
-        { name: "Hair Color", sessionsPerMonth: 2 },
-        { name: "Massage", sessionsPerMonth: 7 },
+        "All services (cleaning, pest control, HVAC, and beauty salon)",
+        "10% discount on additional services",
+        "Flexible scheduling",
+        "Priority booking",
       ],
     },
     {
-      type: "Women's Hair and Makeup Enhanced",
-      price: 5940,
-      discount: "10%",
+      type: "	6-Month Subscription",
+      price: 249,
+
       services: [
-        { name: "Cut & Style", sessionsPerMonth: 4 },
-        { name: "Trim & Style", sessionsPerMonth: 4 },
-        { name: "Professional Makeup", sessionsPerMonth: 4 },
+        "All services (cleaning, pest control, HVAC, and beauty salon)",
+        "15% discount on additional services",
+        "Flexible scheduling",
+        "Priority booking",
+        "Book 2 consecutive services and get the third one free (only applicable in cleaning and beauty salon services)",
       ],
     },
     {
-      type: "Classic Cleaning",
-      price: 5400,
-      discount: "10%",
+      type: "12-Month Subscription",
+      price: 399,
+
       services: [
-        { name: "1 BHK Occupied", price: 2519 },
-        { name: "1 BHK Vacant", price: 2249 },
-        { name: "2 BHK Occupied", price: 2969 },
-        { name: "2 BHK Vacant", price: 2609 },
-        { name: "3 BHK Occupied", price: 3869 },
-        { name: "3 BHK Vacant", price: 3419 },
-        { name: "4 BHK Occupied", price: 4499 },
-        { name: "4 BHK Vacant", price: 4049 },
+        "All services (cleaning, pest control, HVAC, and beauty salon)",
+        "15% discount on additional services",
+        "Flexible scheduling",
+        "Priority booking",
+        "Book 2 consecutive services and get the third one free (only applicable in cleaning and beauty salon services)",
       ],
     },
     {
@@ -130,11 +128,12 @@ const SubscriptionPayment = () => {
                 >
                   {subscription.type}
                 </h3>
-                <h3>3 Months Plans</h3>
+                {/* <h3>3 Months Plans</h3> */}
 
-                <ul style={{ listStyle: "none", paddingInlineStart: "0", }}>
+                <ul style={{ listStyle: "none", paddingInlineStart: "0" }}>
                   {subscription.services.map((service: any, index) => (
                     <li style={{ marginBottom: "0.5rem" }} key={index}>
+                      <Flex>
                       <CheckCircleOutlined
                         style={{
                           marginRight: "0.6rem",
@@ -142,18 +141,19 @@ const SubscriptionPayment = () => {
                           color: "#fca503",
                         }}
                       />
-                      <span>{service.name}</span>{" "}
-                      {service.sessionsPerMonth && (
+                      <div>{service}</div>{" "}
+                      </Flex>
+                      {/* {service.sessionsPerMonth && (
                         <span>
                           (Sessions per month: {service.sessionsPerMonth})
                         </span>
                       )}{" "}
-                      {service.price && <span>(Price: ₹{service.price})</span>}
+                      {service.price && <span>(Price: ₹{service.price})</span>} */}
                     </li>
                   ))}
                 </ul>
 
-                <p
+                {/* <p
                   style={{
                     marginTop: "1rem",
                     marginBottom: "0.5rem",
@@ -161,7 +161,7 @@ const SubscriptionPayment = () => {
                   }}
                 >
                   Discount: {subscription.discount}
-                </p>
+                </p> */}
               </Flex>
               <Card
                 style={{
